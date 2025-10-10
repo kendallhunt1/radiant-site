@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Menu, X, HeartPulse, Activity, ShieldCheck, Smartphone, BarChart3, Sun } from "lucide-react";
+import emailjs from "@emailjs/browser";
+
 
 export default function RadiantLanding() {
   const [open, setOpen] = useState(false);
@@ -11,6 +13,14 @@ export default function RadiantLanding() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState<string | null>(null);
+
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
 
   const CW = "max-w-[1120px] mx-auto px-5";
   const HERO_Y = "py-[120px] lg:py-[140px]";
@@ -60,24 +70,56 @@ export default function RadiantLanding() {
   }
 
   function submitEarlyAccess(e: React.FormEvent) {
-    e.preventDefault();
-    if (!firstName.trim() || !lastName.trim() || !validateEmail(email)) {
-      setErrors("Please provide first name, last name, and a valid email.");
-      return;
-    }
-    setErrors(null);
-
-    // Build a mailto with prefilled subject/body (no external deps / backend required)
-    const subject = encodeURIComponent(`Radiant Early Access Request (${platform})`);
-    const body = encodeURIComponent(
-      `Platform: ${platform}\nFirst name: ${firstName}\nLast name: ${lastName}\nEmail: ${email}\n\nPlease add me to Early Access.`
-    );
-    const mailto = `mailto:kendallhuntwork@gmail.com?subject=${subject}&body=${body}`;
-    window.location.href = mailto;
-
-    // Optionally keep modal open or close it; we'll close for now
-    setEaOpen(false);
+  e.preventDefault();
+  if (!firstName.trim() || !lastName.trim() || !validateEmail(email)) {
+    setErrors("Please provide first name, last name, and a valid email.");
+    return;
   }
+  setErrors(null);
+
+  // Ensure keys are configured
+  if (
+    EMAILJS_SERVICE_ID === "REPLACE_ME" ||
+    EMAILJS_TEMPLATE_ID === "REPLACE_ME" ||
+    EMAILJS_PUBLIC_KEY === "REPLACE_ME"
+  ) {
+    setErrors("Email service is not configured yet. Add your EmailJS keys (VITE_EMAILJS_*).");
+    return;
+  }
+
+  setSending(true);
+  const templateParams = {
+    to_email: "kendallhuntwork@gmail.com",
+    platform,
+    firstName,
+    lastName,
+    email,
+  };
+
+  emailjs
+    .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, {
+      publicKey: EMAILJS_PUBLIC_KEY,
+    })
+    .then(() => {
+      setSending(false);
+      setSent(true);
+      // Close after a short success message
+      setTimeout(() => {
+        setEaOpen(false);
+        setSent(false);
+        setPlatform("");
+        setFirstName("");
+        setLastName("");
+        setEmail("");
+        setEaStep(1);
+      }, 1000);
+    })
+    .catch((err: any) => {
+      console.error(err);
+      setSending(false);
+      setErrors("Sending failed. Please check your internet and EmailJS settings.");
+    });
+}
 
   return (
     <div className="min-h-screen bg-[#0b1220] text-slate-100">
@@ -308,7 +350,7 @@ export default function RadiantLanding() {
         <div>
         <p className="font-semibold">Legal</p>
         <ul className="mt-3 grid gap-2 text-slate-300">
-        <li><a href="/privacy" className="hover:text-sky-300">Privacy</a></li>
+        <li><a href="#/privacy" className="hover:text-sky-300">Privacy</a></li>
         </ul>
         </div>
         </div>
@@ -373,7 +415,10 @@ export default function RadiantLanding() {
 
                 <div className="mt-6 flex justify-between gap-3">
                   <button type="button" className={BTN_SECONDARY} onClick={() => { setEaStep(1); setErrors(null); }}>Back</button>
-                  <button type="submit" className={BTN_PRIMARY}>Send request</button>
+                  <button type="submit" className={`${BTN_PRIMARY} ${sending ? "opacity-70 cursor-not-allowed" : ""}`} disabled={sending}>
+                    {sending ? "Sending..." : sent ? "Sent!" : "Send request"}
+                  </button>
+                  {sent && <p className="mt-3 text-sm text-sky-300">Request sent. Thank you!</p>}
                 </div>
               </form>
             )}

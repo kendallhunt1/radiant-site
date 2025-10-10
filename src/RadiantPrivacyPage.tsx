@@ -26,7 +26,7 @@ export default function RadiantPrivacyPage() {
       {/* Header */}
       <header className="border-b border-slate-800">
         <div className={`${CW} py-6 flex items-center justify-between`}>
-          <a href="/" className="inline-flex items-center gap-3 text-slate-200 hover:text-white">
+          <a href="#/" className="inline-flex items-center gap-3 text-slate-200 hover:text-white">
             <span className="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-slate-800 overflow-hidden">
               <img src="../public/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
             </span>
