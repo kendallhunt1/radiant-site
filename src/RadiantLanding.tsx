@@ -137,8 +137,7 @@ export default function RadiantLanding() {
         <div className={`${CW} py-4 flex items-center justify-between`}>
           <a href="#home" className="flex items-center gap-2 font-semibold text-lg">
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-slate-800 overflow-hidden">
-              {/* Logo placeholder – replace src with your image */}
-              <img src="../public/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
+              <img src="/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
             </span>
             Radiant
           </a>
@@ -187,7 +186,6 @@ export default function RadiantLanding() {
         )}
       </header>
 
-      {/* Hero */}
       <section id="home" className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-950 to-slate-900" />
         <div className={`${CW} ${HERO_Y} grid lg:grid-cols-[1.08fr_0.92fr] gap-24 items-center`}>
@@ -245,7 +243,6 @@ export default function RadiantLanding() {
         </div>
       </section>
 
-      {/* Features */}
       <section id="features" className={`${SEC_Y} border-t border-slate-800 bg-[#0b1220]`}>
         <div className={CW}>
           <div className="text-center max-w-[680px] mx-auto">
@@ -267,7 +264,6 @@ export default function RadiantLanding() {
         </div>
       </section>
 
-      {/* How it works */}
       <section id="how" className={`${SEC_Y} bg-gradient-to-b from-[#0b1220] to-slate-950 border-t border-slate-800`}>
         <div className={`${CW} grid lg:grid-cols-3 gap-10 items-start`}>
           <div className="lg:col-span-1">
@@ -294,7 +290,6 @@ export default function RadiantLanding() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section id="faq" className={`${SEC_Y} bg-[#0b1220] border-t border-slate-800`}>
         <div className={`${CW} max-w-[900px]`}>
           <h2 className={`${H2} text-center`}>FAQ</h2>
@@ -314,7 +309,6 @@ export default function RadiantLanding() {
         </div>
       </section>
 
-      {/* CTA */}
       <section id="cta" className="py-[88px] bg-gradient-to-r from-sky-500 to-sky-400 text-slate-900">
         <div className={`${CW} grid lg:grid-cols-2 gap-10 items-center`}>
           <div>
@@ -357,7 +351,6 @@ export default function RadiantLanding() {
         <div className="mt-8 text-center text-xs text-slate-500">© {new Date().getFullYear()} Radiant. All rights reserved.</div>
     </footer>
 
-      {/* Early Access Modal */}
       {eaOpen && (
         <div role="dialog" aria-modal="true" className="fixed inset-0 z-50 grid place-items-center p-4">
           <div className="absolute inset-0 bg-black/60" onClick={() => setEaOpen(false)} />
