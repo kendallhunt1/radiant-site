@@ -137,8 +137,7 @@ export default function RadiantLanding() {
         <div className={`${CW} py-4 flex items-center justify-between`}>
           <a href="#home" className="flex items-center gap-2 font-semibold text-lg">
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-slate-800 overflow-hidden">
-              {/* Logo placeholder – replace src with your image */}
-              <img src="../public/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
+              <img src="/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
             </span>
             Radiant
           </a>
