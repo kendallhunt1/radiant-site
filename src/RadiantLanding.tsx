@@ -213,7 +213,7 @@ export default function RadiantLanding() {
               <div className="aspect-[4/3] p-6 flex flex-col">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-slate-800 overflow-hidden">
-                    <img src="../public/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
+                    <img src="/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
                   </span>
                   <h3 className="font-semibold text-slate-200">Today</h3>
                 </div>
@@ -328,7 +328,7 @@ export default function RadiantLanding() {
             <div>
                 <div className="inline-flex items-center gap-2 font-semibold text-lg">
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-slate-800 overflow-hidden">
-                    <img src="../public/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
+                    <img src="/sunwave.png" alt="Radiant logo" className="w-full h-full object-contain" />
                     </span>
                     Radiant
             </div>
