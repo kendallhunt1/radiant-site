@@ -1,14 +1,267 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/sunwave.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Radiant Health App</title>
-    <script type="module" crossorigin src="/assets/index-ZzjccIt5.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B4yzKXep.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="radiant - Understand your health and improve your life with simple health tracking." />
+  <title>radiant | Health Tracker</title>
+  <link rel="icon" href="/happySunHead2.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+<header class="header">
+  <a href="#" class="logo">
+    <img src="happySunHead2.png" alt="Radiant logo" />
+    <span>radiant</span>
+  </a>
+
+  <nav class="nav">
+    <a href="#features">Features</a>
+    <a href="#insights">Insights</a>
+    <a href="privacyPolicy.html">Privacy Policy</a>
+    <a href="#download" class="nav-btn">Get radiant</a>
+  </nav>
+
+  <button class="menu-btn" aria-label="Open menu">☰</button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <p class="badge">All-in-one health tracking</p>
+
+      <h2>
+        Understand your health.
+        <span>Improve your life.</span>
+      </h2>
+
+      <p class="hero-description">
+        radiant helps you track the things that matter, discover what’s driving your results,
+        and build healthier habits — backed by real, personal data.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#download" class="btn primary">Get radiant</a>
+      </div>
+
+      <p class="privacy-note">🔒 Your data is private, encrypted, and never shared.</p>
+    </div>
+
+    <div class="hero-visual">
+      <img src="websitescreen.png" class="phone-img" />
+    </div>
+  </section>
+
+  <section class="features-section" id="features">
+    <div class="section-heading">
+      <h2>Everything in one place.</h2>
+      <p>Track your daily habits, see the big picture, and get insights that help you actually feel better.</p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="drumstick"></i>
+        </div>
+        <h3>Food</h3>
+        <p>Log meals and see what fuels you best.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="droplet"></i>
+        </div>
+        <h3>Water</h3>
+        <p>Stay hydrated and find your optimal balance.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="chart-pie"></i>
+        </div>
+        <h3>Macros</h3>
+        <p>Stay hydrated and find your optimal balance.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="scale-3d"></i>
+        </div>
+        <h3>Micro Nutrients</h3>
+        <p>Stay hydrated and find your optimal balance.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="pill"></i>
+        </div>
+        <h3>Supplements</h3>
+        <p>Stay hydrated and find your optimal balance.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="bed"></i>
+        </div>
+        <h3>Sleep</h3>
+        <p>Track sleep quality and its impact on your day.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="weight-tilde"></i>
+        </div>
+        <h3>Weight</h3>
+        <p>Stay hydrated and find your optimal balance.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="smile-plus"></i>
+        </div>
+        <h3>Mood</h3>
+        <p>Understand your emotional patterns over time.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="zap"></i>
+        </div>
+        <h3>Energy</h3>
+        <p>See what drives your energy higher or lower.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="person-standing"></i>
+        </div>
+        <h3>Body</h3>
+        <p>Track how your body feels and performs.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="notebook-pen"></i>
+        </div>
+        <h3>Notes</h3>
+        <p>Track how your body feels and performs.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">
+          <i data-lucide="chart-spline"></i>
+        </div>
+        <h3>Trends</h3>
+        <p>Track how your body feels and performs.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <section class="insights-section" id="insights">
+    <div class="insights-copy">
+      <p class="badge">Smart insights</p>
+      <h2>Data that turns into clarity.</h2>
+      <p>
+        radiant analyzes your patterns and uncovers what’s actually making a difference,
+        so you can stop guessing and start optimizing.
+      </p>
+
+      <ul>
+        <li>Powerful correlations</li>
+        <li>Personalized insights</li>
+        <li>Backed by science</li>
+        <li>Always learning</li>
+      </ul>
+    </div>
+
+    <div class="insights-mockup">
+      <img src="insightss.png" alt="Radiant insights dashboard preview" />
+    </div>
+  </section>
+
+
+  <section class="privacy-download-section" id="privacy">
+    <div class="privacy-content">
+      <p class="badge dark">Built on privacy</p>
+
+      <h2>Your health.<br />Your data.</h2>
+
+      <p>
+        We believe your data belongs to you. radiant uses end-to-end encryption
+        and never sells your information. Ever.
+      </p>
+
+      <a href="privacyPolicy.html" class="privacy-link">
+        Learn more about our privacy →
+      </a>
+
+      <div class="privacy-points">
+        <div>
+          <i data-lucide="lock"></i>
+          <span>End-to-end encrypted</span>
+        </div>
+        <div>
+          <i data-lucide="shield-user"></i>
+          <span>No data selling or sharing</span>
+        </div>
+        <div>
+          <i data-lucide="user-round-cog"></i>
+          <span>You’re in control</span>
+        </div>
+        <div>
+          <i data-lucide="hospital"></i>
+          <span>HIPAA-aligned practices</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="privacy-visual">
+      <img src="privacyMockup.png" alt="Radiant privacy and notification preview" />
+    </div>
+
+    <div class="floating-cta" id="download">
+      <div class="cta-icon">
+        <img src="happySunHead2.png" alt="Radiant icon" />
+      </div>
+
+      <div class="cta-copy">
+        <h2>Ready to get to know yourself better?</h2>
+        <p>Join thousands of people using radiant to build healthier habits and more energy—every day.</p>
+      </div>
+
+      <div class="cta-buttons">
+        <a href="#" class="btn primary">Get radiant</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div>
+    <a href="#" class="logo footer-logo">
+      <img src="happySunHead2.png" alt="Radiant logo" />
+      <span>radiant</span>
+    </a>
+    <p>Understand your body. Improve your energy.</p>
+  </div>
+
+  <div>
+    <h4>Links</h4>
+    <a href="#">Home</a>
+    <a href="privacyPolicy.html">Privacy Policy</a>
+  </div>
+
+  <div>
+    <h4>Download</h4>
+    <p>iOS coming soon</p>
+  </div>
+</footer>
+<script>
+  lucide.createIcons();
+</script>
+</body>
 </html>
