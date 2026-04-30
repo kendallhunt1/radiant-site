@@ -60,8 +60,8 @@ a {
 }
 
 .logo img {
-  width: 34px;
-  height: 34px;
+  width: 60px;
+  height: 60px;
 }
 
 .nav {
@@ -562,36 +562,6 @@ h3, p {
   background: var(--blue);
 }
 
-@media (max-width: 1100px) {
-  .insights-section {
-    grid-template-columns: 1fr;
-  }
-
-  .insights-copy {
-    max-width: 680px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .insights-copy li {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .insights-section {
-    padding: 4rem 1.3rem;
-  }
-
-  .analytics-stats {
-    grid-template-columns: 1fr;
-  }
-
-  .trend-chart {
-    height: 230px;
-  }
-}
-
 .dashboard-card {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -717,14 +687,17 @@ h3, p {
   position: relative;
   z-index: 1;
   min-height: 420px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .privacy-visual img {
-  position: absolute;
-  right: -6%;
-  bottom: -2rem;
-  width: min(760px, 58vw);
-  max-width: none;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: contain;
   filter: drop-shadow(0 28px 70px rgba(0, 0, 0, 0.28));
 }
 
@@ -756,8 +729,8 @@ h3, p {
 }
 
 .cta-icon img {
-  width: 44px;
-  height: 44px;
+  width: 60px;
+  height: 60px;
 }
 
 .cta-copy h2 {
@@ -781,60 +754,6 @@ h3, p {
   margin: 0;
 }
 
-@media (max-width: 1100px) {
-  .privacy-download-section {
-    grid-template-columns: 1fr;
-    padding-bottom: 10rem;
-  }
-
-  .privacy-visual {
-    min-height: 360px;
-  }
-
-  .privacy-visual img {
-    right: 50%;
-    bottom: -1rem;
-    transform: translateX(50%);
-    width: min(720px, 90vw);
-  }
-
-  .floating-cta {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .cta-icon {
-    margin: 0 auto;
-  }
-
-  .floating-cta .cta-buttons {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .privacy-download-section {
-    padding: 4rem 1.3rem 12rem;
-  }
-
-  .privacy-points {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .privacy-visual {
-    min-height: 270px;
-  }
-
-  .floating-cta {
-    width: calc(100% - 2rem);
-    bottom: -7rem;
-    padding: 1.4rem;
-  }
-
-  .floating-cta .cta-buttons {
-    flex-direction: column;
-  }
-}
 
 .final-cta {
   display: flex;
@@ -884,58 +803,192 @@ h3, p {
   margin-bottom: 0.75rem;
 }
 
+@media (max-width: 1590px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 4rem 5% 2rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .store-buttons {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        height: auto;
+        min-height: 560px;
+        margin-top: 2rem;
+      }
+
+      .phone-img {
+          position: relative;
+          height: auto;
+          width: min(680px, 90vw);
+        }
+}
+
+@media (max-width: 1350px) {
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    .privacy-download-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 5rem 5% 11rem;
+      }
+
+      .privacy-content {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .privacy-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .privacy-points {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .privacy-points div {
+        justify-content: center;
+      }
+
+      .privacy-visual {
+        justify-content: center;
+        margin-top: 3rem;
+        min-height: auto;
+      }
+
+      .privacy-visual img {
+        width: min(520px, 90vw);
+        max-width: 520px;
+      }
+}
+
+/* =========================
+   TABLET / SMALL LAPTOP
+   ========================= */
 @media (max-width: 1100px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 4rem;
+  .header {
+    padding: 1rem 4%;
   }
 
-  .hero-content {
-    max-width: 760px;
+  .nav {
+    gap: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .insights-section {
+    grid-template-columns: 1fr;
+    gap: 3rem;
     text-align: center;
+  }
+
+  .insights-copy {
+    max-width: 700px;
     margin: 0 auto;
   }
 
-  .hero-description {
+  .insights-mockup img {
+    margin: 0 auto;
+    max-width: 850px;
+  }
+
+  .privacy-download-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 5rem 5% 11rem;
+  }
+
+  .privacy-content {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .privacy-content p {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .hero-buttons,
-  .store-buttons {
+  .privacy-points {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .privacy-points div {
     justify-content: center;
   }
 
-  .hero-visual {
-    min-height: 620px;
+  .privacy-visual {
+    justify-content: center;
     margin-top: 3rem;
+    min-height: auto;
+    margin-bottom: 2vh;
   }
 
-  .phone-main {
-    left: 50%;
-    right: auto;
-    transform: translateX(-58%);
+  .privacy-visual img {
+    width: min (460px, 85vw);
+    max-width: 460px;
   }
 
-  .phone-secondary {
-    left: 50%;
-    right: auto;
-    transform: translateX(20%) rotate(4deg);
-  }
-
-  .feature-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .insights-section,
-  .privacy-section {
+  .floating-cta {
     grid-template-columns: 1fr;
+    text-align: center;
+    bottom: -5.5rem;
+  }
+
+  .cta-icon {
+    margin: 0 auto;
+  }
+
+  .floating-cta .cta-buttons {
+    justify-content: center;
+  }
+
+  .footer {
+    margin-top: 3vh;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
+@media (max-width: 875px) {
+    .cta-copy p {
+        font-size: 0.95rem;
+      }
+}
+
+/* =========================
+   TABLET / LARGE PHONE
+   ========================= */
 @media (max-width: 768px) {
   .header {
     padding: 1rem 1.3rem;
+  }
+
+  .header a span {
+    font-size: 2rem;
+  }
+
+  .logo img {
+    width: 30px;
+    height: 30px;
   }
 
   .nav {
@@ -946,94 +999,185 @@ h3, p {
     display: block;
   }
 
-  .logo {
-    font-size: 1.8rem;
-  }
-
   .hero {
-    min-height: auto;
-    padding: 3rem 1.3rem 0;
+    padding: 3rem 1.3rem 1rem;
   }
 
-  .hero h1 {
-    font-size: clamp(3rem, 14vw, 4.5rem);
+  .hero h2 {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    letter-spacing: -0.06em;
   }
 
   .hero-description {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
-  .btn,
-  .store-btn {
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
     width: 100%;
   }
 
+  .store-badge img {
+    height: 45px;
+  }
+
+  .privacy-note {
+    font-size: 1rem;
+  }
+
   .hero-visual {
-    min-height: 560px;
+    min-height: auto;
+    margin-top: 1.5rem;
   }
 
-  .phone-main {
-    width: 310px;
-    height: 620px;
-    left: 50%;
-    transform: translateX(-50%);
+  .phone-img {
+    width: 100%;
+    max-width: 420px;
   }
-
-  .phone-secondary {
-    display: none;
-  }
-
-    .store-badge img {
-      height: 45px;
-    }
 
   .features-section,
-  .insights-section,
-  .privacy-section {
+  .insights-section {
     padding: 4rem 1.3rem;
+  }
+
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading p {
+    font-size: 1.1rem;
   }
 
   .feature-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
   }
 
-  .dashboard-card {
-    grid-template-columns: 1fr;
+  .feature-card {
+    padding: 1.5rem 1rem;
+    border-radius: 22px;
   }
 
-  .timeline-card {
-    grid-template-columns: 1fr;
+  .feature-card p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  .feature-icon svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .insights-copy h2 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .insights-copy p,
+  .insights-copy li {
+    font-size: 1.05rem;
+  }
+
+  .insights-mockup img {
+    width: 100%;
+  }
+
+  .privacy-download-section {
+    padding: 4rem 1.3rem 13rem;
+  }
+
+  .privacy-content h2 {
+    font-size: clamp(2.7rem, 11vw, 3.8rem);
+  }
+
+  .privacy-content p {
+    font-size: 1.05rem;
   }
 
   .privacy-points {
     grid-template-columns: 1fr;
+    gap: 1.1rem;
+    text-align: left;
   }
 
-  .final-cta {
+  .privacy-points div {
+    justify-content: flex-start;
+  }
+
+  .privacy-points svg {
+    height: 42px;
+    width: 42px;
+  }
+
+  .privacy-visual img {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .floating-cta {
     width: calc(100% - 2rem);
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-    margin-bottom: 3rem;
+    bottom: -8rem;
+    padding: 1.4rem;
+    border-radius: 26px;
+    gap: 1rem;
+  }
+
+  .cta-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+
+  .cta-icon img {
+    width: 38px;
+    height: 38px;
   }
 
   .footer {
     grid-template-columns: 1fr;
-    padding: 3rem 1.3rem;
+    padding: 7rem 1.3rem 3rem;
   }
 }
 
+/* =========================
+   SMALL PHONE
+   ========================= */
 @media (max-width: 480px) {
+  .badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
   .feature-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero-visual {
-    min-height: 500px;
+  .feature-card {
+    max-width: 360px;
+    width: 100%;
+    margin: 0 auto;
   }
 
-  .phone-main {
-    width: 270px;
-    height: 540px;
+  .insights-copy li {
+    font-size: 1rem;
+  }
+
+  .privacy-points span {
+    font-size: 0.95rem;
+  }
+
+  .floating-cta {
+    bottom: -9rem;
   }
 }
