@@ -25,7 +25,7 @@
     <a href="#download" class="nav-btn">Get radiant</a>
   </nav>
 
-  <button class="menu-btn" aria-label="Open menu">☰</button>
+  <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
 </header>
 
 <main>
@@ -262,6 +262,25 @@
 </footer>
 <script>
   lucide.createIcons();
+
+  const menuBtn = document.querySelector('.menu-btn');
+  const nav = document.querySelector('.nav');
+
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+
+    const isOpen = nav.classList.contains('active');
+    menuBtn.setAttribute('aria-expanded', isOpen);
+    menuBtn.textContent = isOpen ? '×' : '☰';
+  });
+
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    });
+  });
 </script>
 </body>
 </html>

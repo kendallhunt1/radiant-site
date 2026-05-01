@@ -979,6 +979,43 @@ h3, p {
    ========================= */
 @media (max-width: 768px) {
   .header {
+  position: sticky;
+}
+
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  padding: 1rem 1.3rem;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(7, 21, 47, 0.12);
+}
+
+.nav.active {
+  display: flex;
+}
+
+.nav a {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav a:last-child {
+  border-bottom: none;
+}
+
+.nav-btn {
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+  .header {
     padding: 1rem 1.3rem;
   }
 
