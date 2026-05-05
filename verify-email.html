@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verify Email | Radiant Health</title>
+    <title>Verify Email | radiant</title>
+    <link rel="icon" href="/liftingSunLogoDepthDark1.png" />
 
     <style>
         body {
@@ -62,10 +63,12 @@
 
 <body>
 <div class="card">
-    <div class="brand">RADIANT HEALTH</div>
+    <div class="brand" style="margin-bottom: 24px;">
+        <img src="/liftingSunLogoDepthLight.png" alt="radiant Health" style="width: 60px; height: auto;" />
+    </div>
 
     <h1 id="title">Verifying your email...</h1>
-    <p id="subtitle">One moment while we secure your Radiant Health account.</p>
+    <p id="subtitle">One moment while we secure your radiant account.</p>
 
     <div id="message" class="message"></div>
 </div>
@@ -106,7 +109,7 @@
         await applyActionCode(auth, oobCode);
 
         title.textContent = "Email verified";
-        subtitle.textContent = "Your Radiant Health account is now secure.";
+        subtitle.textContent = "Your radiant Health account is now secure.";
         message.textContent = "You can return to the app and continue.";
         message.classList.add("success");
       } catch (error) {
