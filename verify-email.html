@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Email | Radiant Health</title>
+
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: #f5f7fb;
+          color: #111827;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+          padding: 24px;
+        }
+
+        .card {
+          max-width: 420px;
+          width: 100%;
+          background: white;
+          border-radius: 20px;
+          padding: 36px;
+          text-align: center;
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .brand {
+          font-size: 20px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          margin-bottom: 24px;
+        }
+
+        h1 {
+          font-size: 26px;
+          margin-bottom: 12px;
+        }
+
+        p {
+          color: #6b7280;
+          line-height: 1.5;
+        }
+
+        .message {
+          margin-top: 18px;
+          font-size: 15px;
+        }
+
+        .success {
+          color: #6C63FF;
+        }
+
+        .error {
+          color: #dc2626;
+        }
+    </style>
+</head>
+
+<body>
+<div class="card">
+    <div class="brand">RADIANT HEALTH</div>
+
+    <h1 id="title">Verifying your email...</h1>
+    <p id="subtitle">One moment while we secure your Radiant Health account.</p>
+
+    <div id="message" class="message"></div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+    import { getAuth, applyActionCode } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "gethealthy-6d888.firebaseapp.com",
+      projectId: "gethealthy-6d888",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const params = new URLSearchParams(window.location.search);
+    const oobCode = params.get("oobCode");
+
+    async function verifyEmail() {
+      const title = document.getElementById("title");
+      const subtitle = document.getElementById("subtitle");
+      const message = document.getElementById("message");
+
+      if (!oobCode) {
+        title.textContent = "Invalid verification link";
+        subtitle.textContent = "This link is missing required information.";
+        message.classList.add("error");
+        return;
+      }
+
+      try {
+        await applyActionCode(auth, oobCode);
+
+        title.textContent = "Email verified";
+        subtitle.textContent = "Your Radiant Health account is now secure.";
+        message.textContent = "You can return to the app and continue.";
+        message.classList.add("success");
+      } catch (error) {
+        title.textContent = "Verification failed";
+        subtitle.textContent = "This link may be invalid or expired.";
+        message.textContent = "Please request a new verification email from the app.";
+        message.classList.add("error");
+      }
+    }
+
+    verifyEmail();
+</script>
+</body>
+</html>
