@@ -1,286 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="radiant - Understand your health and improve your life with simple health tracking." />
-  <title>radiant | Health Tracker</title>
+  <meta
+    name="description"
+    content="radiant helps you track nutrition, movement, sleep, and recovery with AI insights, privacy-first data practices, and supportive habit-building tools."
+  />
+  <title>radiant | Healthy habits. Real progress.</title>
   <link rel="icon" href="/liftingSunLogoDepthLight.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+<body class="landing-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<body>
-<header class="header">
-  <a href="#" class="logo">
-    <img src="liftingSunLogoDepthDark1.png" alt="Radiant logo" />
-    <span>radiant</span>
-  </a>
-
-  <nav class="nav">
-    <a href="#features">Features</a>
-    <a href="#insights">Insights</a>
-    <a href="privacyPolicy.html">Privacy Policy</a>
-    <a href="#download" class="nav-btn">Get radiant</a>
-  </nav>
-
-  <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="hero-content">
-      <p class="badge">All-in-one health tracking</p>
-
-      <h2>
-        Understand your health.
-        <span>Improve your life.</span>
-      </h2>
-
-      <p class="hero-description">
-        radiant helps you track the things that matter, discover what’s driving your results,
-        and build healthier habits — backed by real, personal data.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#download" class="btn primary">Get radiant</a>
-      </div>
-
-      <p class="privacy-note">🔒 Your data is private, encrypted, and never shared.</p>
-    </div>
-
-    <div class="hero-visual">
-      <img src="websitescreen.png" class="phone-img" />
-    </div>
-  </section>
-
-  <section class="features-section" id="features">
-    <div class="section-heading">
-      <h2>Everything in one place.</h2>
-      <p>Track your daily habits, see the big picture, and get insights that help you actually feel better.</p>
-    </div>
-
-    <div class="feature-grid">
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="drumstick"></i>
-        </div>
-        <h3>Food</h3>
-        <p>Log meals and see what fuels you best.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="droplet"></i>
-        </div>
-        <h3>Water</h3>
-        <p>Stay hydrated and find your optimal balance.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="chart-pie"></i>
-        </div>
-        <h3>Macros</h3>
-        <p>No more calculating your own macros. Did we mention this is free?</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="scale-3d"></i>
-        </div>
-        <h3>Micro Nutrients</h3>
-        <p>Learn and tweak your micro nutrient intakes.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="pill"></i>
-        </div>
-        <h3>Supplements</h3>
-        <p>See the data of how your supplements effect your health.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="bed"></i>
-        </div>
-        <h3>Sleep</h3>
-        <p>Track sleep and its impact on your day.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="weight-tilde"></i>
-        </div>
-        <h3>Weight</h3>
-        <p>Stay up to date with in-app weight tracking.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="smile-plus"></i>
-        </div>
-        <h3>Mood</h3>
-        <p>Understand your emotional patterns over time.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="zap"></i>
-        </div>
-        <h3>Energy</h3>
-        <p>See what drives your energy higher or lower.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="person-standing"></i>
-        </div>
-        <h3>Body</h3>
-        <p>Track how your body feels and performs.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="notebook-pen"></i>
-        </div>
-        <h3>Notes</h3>
-        <p>For the health that can't be quantified. Note it all.</p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-icon">
-          <i data-lucide="chart-spline"></i>
-        </div>
-        <h3>Trends</h3>
-        <p>Understand your progress deeper than ever before.</p>
-      </article>
-    </div>
-  </section>
-
-
-  <section class="insights-section" id="insights">
-    <div class="insights-copy">
-      <p class="badge">Smart insights</p>
-      <h2>Data that turns into clarity.</h2>
-      <p>
-        Use radiant to analyze your patterns and uncover what’s actually making a difference
-        so you can stop guessing and start optimizing.
-      </p>
-
-      <ul>
-        <li>Powerful trends</li>
-        <li>Personalized insights</li>
-        <li>Real, meaningful data</li>
-        <li>Always improving</li>
-      </ul>
-    </div>
-
-    <div class="insights-mockup">
-      <img src="insightss.png" alt="Radiant insights dashboard preview" />
-    </div>
-  </section>
-
-
-  <section class="privacy-download-section" id="privacy">
-    <div class="privacy-content">
-      <p class="badge dark">Built on privacy</p>
-
-      <h2>Your health.<br />Your data.</h2>
-
-      <p>
-        We believe your data belongs to you. radiant uses end-to-end encryption
-        and never sells your information. Ever.
-      </p>
-
-      <a href="privacyPolicy.html" class="privacy-link">
-        Learn more about our privacy →
+  <header class="header site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-brand" aria-label="radiant home">
+        <img
+          class="site-brand__logo-image"
+          src="./assets/radiantLogo.png"
+          alt="radiant"
+          width="188"
+          height="48"
+        />
       </a>
 
-      <div class="privacy-points">
-        <div>
-          <i data-lucide="lock"></i>
-          <span>End-to-end encrypted</span>
-        </div>
-        <div>
-          <i data-lucide="shield-user"></i>
-          <span>No data selling or sharing</span>
-        </div>
-        <div>
-          <i data-lucide="user-round-cog"></i>
-          <span>You’re in control</span>
-        </div>
-        <div>
-          <i data-lucide="hospital"></i>
-          <span>HIPAA-aligned practices</span>
-        </div>
+      <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
+
+      <div class="site-header__actions">
+        <a
+          class="button button--ghost button--compact"
+          href="mailto:support@radianthealthapp.com?subject=Radiant%20log%20in%20help"
+        >
+          Log in
+        </a>
+        <a class="button button--primary button--compact" href="#download">Get Started</a>
       </div>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <i data-lucide="menu"></i>
+      </button>
     </div>
 
-    <div class="privacy-visual">
-      <img src="radiantchartscreenshotleft.png" alt="Radiant privacy and notification preview" />
-    </div>
-
-    <div class="floating-cta" id="download">
-      <div class="cta-icon">
-        <img src="liftingSunLogoDepthDark1.png" alt="Radiant icon" />
-      </div>
-
-      <div class="cta-copy">
-        <h2>Ready to get to know yourself better?</h2>
-        <p>Join our community to use radiant to build healthier habits and a better life — every day.</p>
-      </div>
-
-      <div class="cta-buttons">
-        <a href="#" class="btn primary">Get radiant</a>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="container mobile-menu__content">
+        <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav"></nav>
       </div>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="footer">
-  <div>
-    <a href="#" class="logo footer-logo">
-      <img src="liftingSunLogoDepthDark1.png" alt="Radiant logo" />
-      <span>radiant</span>
-    </a>
-    <p>Understand your health. Improve your life.</p>
-  </div>
+  <main id="main-content">
+    <section class="hero-section section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="hero-badge">Your all-in-one wellness companion</p>
 
-  <div>
-    <h4>Links</h4>
-    <a href="#">Home</a>
-    <a href="privacyPolicy.html">Privacy Policy</a>
-  </div>
+          <h1 class="hero-title">
+            Healthy habits.
+            <br />
+            Real progress.
+            <br />
+            <span>Radiant You.</span>
+          </h1>
 
-  <div>
-    <h4>Download</h4>
-    <p>iOS coming soon</p>
-  </div>
-</footer>
-<script>
-  lucide.createIcons();
+          <p class="hero-description">
+            Track nutrition, movement, sleep, and more, powered by AI insights and a supportive
+            community that grows with you.
+          </p>
 
-  const menuBtn = document.querySelector('.menu-btn');
-  const nav = document.querySelector('.nav');
+          <div class="hero-actions" id="download">
+            <a class="button button--primary" href="#final-cta">Get Started Free</a>
+            <a
+              class="button button--ghost"
+              href="mailto:support@radianthealthapp.com?subject=Radiant%20app%20download"
+            >
+              Download the App
+            </a>
+          </div>
 
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
+          <div class="hero-characters" id="hero-characters"></div>
+        </div>
 
-    const isOpen = nav.classList.contains('active');
-    menuBtn.setAttribute('aria-expanded', isOpen);
-    menuBtn.textContent = isOpen ? '×' : '☰';
-  });
+        <div class="hero-visual" id="product">
+          <span class="sparkle sparkle--one" aria-hidden="true">
+            <i data-lucide="sparkles"></i>
+          </span>
+          <span class="sparkle sparkle--two" aria-hidden="true">
+            <i data-lucide="sparkles"></i>
+          </span>
 
-  nav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      menuBtn.textContent = '☰';
-    });
-  });
-</script>
+          <div class="dashboard-shell" id="dashboard">
+            <aside class="dashboard-rail" aria-label="Dashboard navigation">
+              <button class="dashboard-rail__item dashboard-rail__item--active" type="button" aria-label="Overview">
+                <i data-lucide="layout-grid"></i>
+              </button>
+              <button class="dashboard-rail__item" type="button" aria-label="Community">
+                <i data-lucide="users"></i>
+              </button>
+              <button class="dashboard-rail__item" type="button" aria-label="AI coach">
+                <i data-lucide="sparkles"></i>
+              </button>
+              <button class="dashboard-rail__item dashboard-rail__item--accent" type="button" aria-label="Add entry">
+                <i data-lucide="plus"></i>
+              </button>
+              <button class="dashboard-rail__item" type="button" aria-label="Insights">
+                <i data-lucide="chart-column"></i>
+              </button>
+              <button class="dashboard-rail__item" type="button" aria-label="Journal">
+                <i data-lucide="clipboard-list"></i>
+              </button>
+              <button class="dashboard-rail__item" type="button" aria-label="Profile">
+                <i data-lucide="user-round"></i>
+              </button>
+            </aside>
+
+            <div class="dashboard-main">
+              <div class="dashboard-main__top">
+                <div>
+                  <p class="dashboard-eyebrow">
+                    <i data-lucide="sparkles"></i>
+                    radiant
+                  </p>
+                  <div class="dashboard-heading-row">
+                    <h2>Dashboard</h2>
+                    <span class="day-chip">23</span>
+                  </div>
+                </div>
+
+                <div class="dashboard-date">
+                  <span>Jul 24, 2024</span>
+                  <a href="#insights">See Details</a>
+                </div>
+              </div>
+
+              <div class="dashboard-grid">
+                <article class="surface-card dashboard-card dashboard-card--sleep">
+                  <p class="card-kicker">Great morning, Kendall! ☀️</p>
+                  <p class="card-body">
+                    You&apos;re on track to have a great day.
+                  </p>
+                  <div class="sleep-summary">
+                    <div>
+                      <strong>7h 30m</strong>
+                      <span>Time in bed</span>
+                    </div>
+                    <a href="#real-life">Check your recap</a>
+                  </div>
+                </article>
+
+                <article class="surface-card dashboard-card dashboard-card--water">
+                  <div>
+                    <h3>Water Intake</h3>
+                    <strong>48 <span>oz</span></strong>
+                    <p>of 112 oz goal</p>
+                  </div>
+                  <div class="progress-circle" aria-label="38 percent of water goal completed">
+                    <div class="progress-circle__inner">
+                      <strong>38%</strong>
+                      <span>of the way</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card dashboard-card dashboard-card--calories">
+                  <div class="dashboard-card__heading">
+                    <h3>Calories</h3>
+                    <p>Net</p>
+                  </div>
+                  <div class="calorie-metric">380 <span>cal</span></div>
+                  <svg class="mini-line-chart" viewBox="0 0 280 80" aria-hidden="true">
+                    <path d="M10 46 C36 46, 40 56, 68 53 S112 23, 142 38 S188 67, 218 42 S248 26, 270 30" />
+                    <circle cx="55" cy="54" r="5"></circle>
+                    <circle cx="141" cy="38" r="5"></circle>
+                    <circle cx="223" cy="41" r="5"></circle>
+                  </svg>
+                  <div class="chart-legend">
+                    <div>
+                      <span class="legend-dot legend-dot--blue"></span>
+                      Goal 1,800
+                    </div>
+                    <div>
+                      <span class="legend-dot legend-dot--red"></span>
+                      Food 1,420
+                    </div>
+                    <div>
+                      <span class="legend-dot legend-dot--green"></span>
+                      Exercise 420
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card dashboard-card dashboard-card--focus" id="insights">
+                  <div class="dashboard-card__heading">
+                    <h3>Today&apos;s Focus</h3>
+                    <span class="insight-pill">Movement +</span>
+                  </div>
+                  <div class="focus-meta">
+                    <span>Tomorrow tip</span>
+                    <div class="toggle-pill" aria-hidden="true">
+                      <span></span>
+                    </div>
+                  </div>
+                  <p class="focus-body">
+                    Evening walk completed! Great job on the 30min walk. You&apos;ve hit your movement
+                    goal 3 days in a row.
+                  </p>
+                  <div class="focus-footer">
+                    <div class="focus-character" id="dashboard-sun"></div>
+                    <p>Keep the momentum going!</p>
+                  </div>
+                </article>
+
+                <article class="surface-card dashboard-card dashboard-card--macros">
+                  <h3>Macros</h3>
+                  <div class="macro-rings">
+                    <div class="macro-ring macro-ring--protein">
+                      <span>45%</span>
+                      <small>Protein</small>
+                    </div>
+                    <div class="macro-ring macro-ring--carbs">
+                      <span>30%</span>
+                      <small>Carbs</small>
+                    </div>
+                    <div class="macro-ring macro-ring--fat">
+                      <span>25%</span>
+                      <small>Fat</small>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="surface-card dashboard-card dashboard-card--readiness">
+                  <div>
+                    <h3>Readiness</h3>
+                    <p>Good</p>
+                  </div>
+                  <div class="readiness-grid">
+                    <div>
+                      <span>Score</span>
+                      <strong>7.5/10</strong>
+                    </div>
+                    <div>
+                      <span>Calories Remaining</span>
+                      <strong>200</strong>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+
+          <aside class="phone-shell" aria-label="Mobile sleep summary preview">
+            <div class="phone-shell__top">
+              <button type="button" aria-label="Go back">
+                <i data-lucide="arrow-left"></i>
+              </button>
+              <div>
+                <h3>Sleep</h3>
+                <p>Jul 15</p>
+              </div>
+              <button type="button" aria-label="Open sleep settings">
+                <i data-lucide="settings-2"></i>
+              </button>
+            </div>
+
+            <div class="phone-hero-metric">
+              <strong>7h 30m</strong>
+              <span>Time in bed</span>
+              <p>Good quality</p>
+            </div>
+
+            <div class="phone-stat-grid">
+              <article>
+                <small>Awake</small>
+                <strong>15m</strong>
+              </article>
+              <article>
+                <small>Light</small>
+                <strong>2h 20m</strong>
+              </article>
+              <article>
+                <small>Deep</small>
+                <strong>2h 10m</strong>
+              </article>
+            </div>
+
+            <div class="phone-chart-card">
+              <div class="phone-chart-card__heading">
+                <h4>Pulse (bpm)</h4>
+                <p>Rest • Elevated</p>
+              </div>
+              <div class="pulse-bars" aria-hidden="true">
+                <span class="pulse-bars__bar pulse-bars__bar--muted"></span>
+                <span class="pulse-bars__bar pulse-bars__bar--muted"></span>
+                <span class="pulse-bars__bar"></span>
+                <span class="pulse-bars__bar"></span>
+                <span class="pulse-bars__bar pulse-bars__bar--tall"></span>
+                <span class="pulse-bars__bar pulse-bars__bar--tall"></span>
+              </div>
+              <div class="pulse-days">
+                <span>Thu</span>
+                <span>Fri</span>
+                <span>Sat</span>
+                <span>Sun</span>
+                <span>Mon</span>
+                <span>Tue</span>
+              </div>
+            </div>
+
+            <div class="phone-bottom-nav" aria-hidden="true">
+              <i data-lucide="calendar-range"></i>
+              <i data-lucide="chart-column"></i>
+              <i data-lucide="sparkles"></i>
+              <i data-lucide="house"></i>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section value-strip" aria-labelledby="value-strip-heading">
+      <div class="container">
+        <h2 class="sr-only" id="value-strip-heading">Core benefits</h2>
+        <div class="value-strip__panel" id="value-grid"></div>
+      </div>
+    </section>
+
+    <section class="section features-section" id="features" aria-labelledby="features-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="features-heading">
+            Everything you need to thrive
+            <span class="heading-sparkle" aria-hidden="true">
+              <i data-lucide="sparkles"></i>
+            </span>
+          </h2>
+          <p>Powerful tools. Thoughtful design. Made for real life.</p>
+        </div>
+
+        <div class="feature-grid" id="feature-grid"></div>
+      </div>
+    </section>
+
+    <section class="section insight-section" aria-labelledby="real-life-heading">
+      <div class="container insight-layout">
+        <article class="surface-card real-life-card" id="real-life">
+          <div class="real-life-card__copy">
+            <h2 id="real-life-heading">
+              Built for real life
+              <span class="heading-sparkle" aria-hidden="true">
+                <i data-lucide="sparkles"></i>
+              </span>
+            </h2>
+            <p>
+              Log effortlessly. Stay consistent. Let Radiant handle the rest.
+            </p>
+
+            <div class="benefit-list" id="benefit-list"></div>
+
+            <a class="button button--success" href="#features">See how it works</a>
+          </div>
+
+          <div class="real-life-card__visual">
+            <div class="water-peek" id="water-peek"></div>
+
+            <div class="mini-phone">
+              <div class="mini-phone__header">
+                <button type="button" aria-label="Back to meals">
+                  <i data-lucide="arrow-left"></i>
+                </button>
+                <h3>Log Food</h3>
+                <button type="button" aria-label="More options">
+                  <i data-lucide="more-horizontal"></i>
+                </button>
+              </div>
+
+              <div class="meal-tabs" aria-label="Meal categories">
+                <span>Breakfast</span>
+                <span>Lunch</span>
+                <span>Dinner</span>
+                <span class="is-active">Snack</span>
+              </div>
+
+              <label class="search-field">
+                <i data-lucide="search"></i>
+                <input type="text" value="Search food" aria-label="Search food" readonly />
+              </label>
+
+              <div class="mini-phone__actions">
+                <button class="pill-action pill-action--primary" type="button">AI Scan</button>
+                <button class="pill-action" type="button">Photo Scan</button>
+              </div>
+
+              <article class="food-entry">
+                <div class="food-entry__icon">
+                  <i data-lucide="salad"></i>
+                </div>
+                <div>
+                  <strong>Oatmeal</strong>
+                  <p>1 cup • 150 cal</p>
+                </div>
+              </article>
+            </div>
+
+            <div class="workflow-steps" aria-label="Radiant workflow">
+              <div class="workflow-step">
+                <span><i data-lucide="clipboard-list"></i></span>
+                <strong>Log</strong>
+              </div>
+              <div class="workflow-step">
+                <span><i data-lucide="sparkles"></i></span>
+                <strong>AI Insights</strong>
+              </div>
+              <div class="workflow-step">
+                <span><i data-lucide="heart"></i></span>
+                <strong>Feel progress</strong>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="surface-card coach-card" id="coaches">
+          <div class="coach-card__copy">
+            <h2>
+              For coaches
+              <br />
+              and professionals
+              <span class="heading-sparkle" aria-hidden="true">
+                <i data-lucide="sparkles"></i>
+              </span>
+            </h2>
+            <p>Actionable data. Happier clients. Better outcomes.</p>
+            <div class="coach-checklist" id="coach-checklist"></div>
+            <a class="button button--success" href="#tester-cta">Learn about coaching</a>
+          </div>
+
+          <div class="coach-analytics">
+            <article class="analytics-card">
+              <p class="analytics-card__label">Insights</p>
+              <strong>1,342 cal</strong>
+              <span>Daily average intake</span>
+              <svg viewBox="0 0 220 90" aria-hidden="true">
+                <path d="M12 52 C42 16, 66 20, 86 48 S130 75, 152 56 S188 24, 208 36" />
+              </svg>
+            </article>
+
+            <article class="analytics-card analytics-card--points">
+              <p class="analytics-card__label">Top Daily Points</p>
+              <div class="progress-list">
+                <div>
+                  <span>Nutrition</span>
+                  <div class="progress-track">
+                    <span style="width: 89%"></span>
+                  </div>
+                  <strong>89%</strong>
+                </div>
+                <div>
+                  <span>Sleep</span>
+                  <div class="progress-track progress-track--sleep">
+                    <span style="width: 67%"></span>
+                  </div>
+                  <strong>67%</strong>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section tester-cta" id="tester-cta" aria-labelledby="tester-heading">
+      <div class="container">
+        <div class="tester-cta__panel">
+          <div class="tester-cta__copy">
+            <h2 id="tester-heading">
+              Help shape the future of Radiant
+              <span class="heading-sparkle" aria-hidden="true">
+                <i data-lucide="sparkles"></i>
+              </span>
+            </h2>
+            <p>
+              Become a tester and get early access while helping us refine the experience.
+            </p>
+            <div class="tester-benefits" id="tester-benefits"></div>
+          </div>
+
+          <div class="tester-character" id="tester-character"></div>
+
+          <div class="tester-cta__actions">
+            <a class="button button--lavender" href="/tester">Apply to be a tester</a>
+            <a class="text-link" href="#features">Learn what to expect</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta" id="final-cta" aria-labelledby="final-cta-heading">
+      <div class="container">
+        <div class="final-cta__panel">
+          <div class="final-cta__character" id="final-cta-character"></div>
+
+          <div class="final-cta__copy">
+            <h2 id="final-cta-heading">
+              Ready to become your best you?
+              <span class="heading-sparkle" aria-hidden="true">
+                <i data-lucide="sparkles"></i>
+              </span>
+            </h2>
+            <p>Join thousands building healthier habits with Radiant.</p>
+          </div>
+
+          <div class="final-cta__actions">
+            <div class="final-cta__button-row">
+              <a class="button button--primary" href="#top">Get Started Free</a>
+              <a
+                class="button button--ghost"
+                href="mailto:support@radianthealthapp.com?subject=Radiant%20app%20download"
+              >
+                Download the App
+              </a>
+            </div>
+            <p>Free core tracking. No credit card required.</p>
+          </div>
+
+          <span class="leaf-accent" aria-hidden="true">
+            <i data-lucide="leaf"></i>
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer site-footer" id="footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="index.html" class="site-brand site-brand--footer" aria-label="radiant home">
+          <img
+            class="site-brand__logo-image site-brand__logo-image--footer"
+            src="./assets/radiantLogo.png"
+            alt="radiant"
+            width="188"
+            height="48"
+          />
+        </a>
+        <p>Healthy habits. Real progress. Radiant You.</p>
+        <small>&copy; 2026 radiant. All rights reserved.</small>
+      </div>
+
+      <div class="site-footer__links" id="footer-links"></div>
+
+      <div class="site-footer__newsletter">
+        <h3>Stay in the loop</h3>
+        <p>Tips, inspiration, and life-changing wellness, delivered to you.</p>
+
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="sr-only" for="newsletter-email">Email address</label>
+          <input
+            id="newsletter-email"
+            name="email"
+            type="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          />
+          <button type="submit" aria-label="Send newsletter request">
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </form>
+        <p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
+
+        <div class="social-links" id="social-links"></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
