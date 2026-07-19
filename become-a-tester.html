@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Apply to become a Radiant tester and help shape the next versions of the product."
+  />
+  <title>Radiant | Become a Tester</title>
+  <link rel="icon" href="/liftingSunLogoDepthLight.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="tester-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="header site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-brand" aria-label="radiant home">
+        <img
+          class="site-brand__logo-image"
+          src="./assets/radiantLogo.png"
+          alt="radiant"
+          width="188"
+          height="48"
+        />
+      </a>
+
+      <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
+
+      <div class="site-header__actions">
+        <a class="button button--nav-outline button--compact" href="index.html#final-cta">Get Started</a>
+      </div>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="container mobile-menu__content">
+        <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav"></nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="tester-application-section">
+      <div class="container tester-shell">
+        <div class="tester-hero">
+          <p class="tester-eyebrow">
+            <i data-lucide="sparkles" aria-hidden="true"></i>
+            Tester program
+          </p>
+          <h1>Want to become a tester? Apply here.</h1>
+          <p>
+            We&apos;re building an early tester group to help shape how Radiant feels, performs, and grows before wider rollout.
+          </p>
+        </div>
+
+        <div class="tester-info-grid">
+          <article class="tester-panel">
+            <h2>Benefits</h2>
+            <ul>
+              <li>Free premium for life.</li>
+              <li>Get the newest versions first.</li>
+              <li>Unlimited groups in the community.</li>
+              <li>Free AI usage during testing.</li>
+              <li>Priority access to new experiments and unreleased features.</li>
+            </ul>
+          </article>
+
+          <article class="tester-panel">
+            <h2>Who We Want</h2>
+            <ul>
+              <li>People who actively log their health today.</li>
+              <li>People who care about their health but don&apos;t currently log it.</li>
+              <li>People who have used health logging apps in the past or present.</li>
+              <li>People willing to join and contribute to communities.</li>
+              <li>People who can give clear, practical product feedback.</li>
+            </ul>
+          </article>
+
+          <article class="tester-panel">
+            <h2>What&apos;s Expected</h2>
+            <ul>
+              <li>Use Radiant consistently enough to form real opinions.</li>
+              <li>Share bugs, friction points, and ideas while testing.</li>
+              <li>Be responsive when we ask for specific product feedback.</li>
+              <li>Try new flows and versions as they become available.</li>
+              <li>Participate thoughtfully if you choose to join community testing spaces.</li>
+              <li>Health professionals are expected to use the pro tools, including groups, plans, client logs, health metrics, and the Radiant CRM, and provide feedback on them.</li>
+            </ul>
+          </article>
+        </div>
+
+        <section class="tester-form-card" aria-labelledby="tester-form-heading">
+          <h2 id="tester-form-heading">Tester application</h2>
+          <p class="tester-form-copy">
+            Fill out every field below so we can understand whether you&apos;re a good fit for the current testing cohort.
+          </p>
+
+          <form class="tester-form" id="tester-application-form" novalidate>
+            <div class="tester-form-grid">
+              <div class="tester-field tester-field--full tester-professional-toggle">
+                <div class="tester-label-row">
+                  <span>Are you a health professional?</span>
+                  <button class="tester-info-button" type="button" id="health-professional-info-button" aria-label="Learn what counts as a health professional">
+                    <i data-lucide="info" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="tester-checkbox-row">
+                  <input id="tester-health-professional" name="isHealthProfessional" type="checkbox" />
+                  <label for="tester-health-professional">Yes, I&apos;m applying as a health professional.</label>
+                </div>
+              </div>
+
+              <section class="tester-professional-panel tester-field--full" id="tester-professional-panel" hidden aria-label="Health professional questions">
+                <div class="tester-professional-panel__copy">
+                  <h3>Health professional tester access</h3>
+                  <p>
+                    If you join as a health professional, you&apos;ll be given access to create groups, manage groups, share meal plans, share workouts, review day-to-day client logs and health metrics, and use the online Radiant CRM for health professionals.
+                  </p>
+                  <p>
+                    By applying as a health professional, you&apos;re agreeing to actively test these features and provide direct feedback on how they work in day-to-day practice.
+                  </p>
+                </div>
+
+                <div class="tester-form-grid tester-form-grid--nested">
+                  <div class="tester-field">
+                    <label for="tester-professional-type">What type of health professional are you?</label>
+                    <select class="tester-select" id="tester-professional-type" name="professionalType">
+                      <option value="">Select one</option>
+                      <option value="dietitian">Dietitian / nutrition professional</option>
+                      <option value="coach">Health or wellness coach</option>
+                      <option value="trainer">Trainer / fitness professional</option>
+                      <option value="therapist">Therapist / counselor</option>
+                      <option value="clinical">Clinical practitioner</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+
+                  <fieldset class="tester-field tester-choice-group">
+                    <legend>Do you currently use any apps to manage clients or your schedule day-to-day?</legend>
+                    <div class="tester-choice-grid">
+                      <label class="tester-choice">
+                        <input type="radio" name="usesClientApps" value="yes" />
+                        <span>Yes</span>
+                      </label>
+                      <label class="tester-choice">
+                        <input type="radio" name="usesClientApps" value="no" />
+                        <span>No</span>
+                      </label>
+                    </div>
+                  </fieldset>
+
+                  <div class="tester-field tester-field--full" id="tester-client-apps-field">
+                    <label for="tester-client-apps">If yes, what apps do you use?</label>
+                    <textarea
+                      class="tester-textarea"
+                      id="tester-client-apps"
+                      name="clientApps"
+                      placeholder="Examples: Practice Better, Trainerize, My PT Hub, Google Calendar, SimplePractice..."
+                    ></textarea>
+                    <p class="tester-field__helper">This becomes required if you answer yes above.</p>
+                  </div>
+                </div>
+              </section>
+
+              <div class="tester-field">
+                <label for="tester-first-name">First name</label>
+                <input class="tester-input" id="tester-first-name" name="firstName" type="text" required />
+              </div>
+
+              <div class="tester-field">
+                <label for="tester-last-name">Last name</label>
+                <input class="tester-input" id="tester-last-name" name="lastName" type="text" required />
+              </div>
+
+              <div class="tester-field">
+                <label for="tester-age">Age</label>
+                <input class="tester-input" id="tester-age" name="age" type="number" min="13" max="120" required />
+              </div>
+
+              <div class="tester-field">
+                <label for="tester-activity-level">Activity level</label>
+                <select class="tester-select" id="tester-activity-level" name="activityLevel" required>
+                  <option value="">Select one</option>
+                  <option value="sedentary">Mostly sedentary</option>
+                  <option value="light">Lightly active</option>
+                  <option value="moderate">Moderately active</option>
+                  <option value="high">Highly active</option>
+                </select>
+              </div>
+
+              <fieldset class="tester-field tester-choice-group">
+                <legend>Do you currently log your health?</legend>
+                <div class="tester-choice-grid">
+                  <label class="tester-choice">
+                    <input type="radio" name="currentlyLogs" value="yes" required />
+                    <span>Yes</span>
+                  </label>
+                  <label class="tester-choice">
+                    <input type="radio" name="currentlyLogs" value="no" required />
+                    <span>No</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="tester-field tester-choice-group">
+                <legend>Have you used health logging apps in the past or present?</legend>
+                <div class="tester-choice-grid">
+                  <label class="tester-choice">
+                    <input type="radio" name="usedOtherApps" value="yes" required />
+                    <span>Yes</span>
+                  </label>
+                  <label class="tester-choice">
+                    <input type="radio" name="usedOtherApps" value="no" required />
+                    <span>No</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="tester-field tester-field--full" id="tester-other-apps-field">
+                <label for="tester-other-apps">If yes, what apps have you used?</label>
+                <textarea
+                  class="tester-textarea"
+                  id="tester-other-apps"
+                  name="otherApps"
+                  placeholder="Examples: MyFitnessPal, Cronometer, Fitbit, Apple Health, Oura..."
+                ></textarea>
+                <p class="tester-field__helper">This becomes required if you answer yes above.</p>
+              </div>
+
+              <fieldset class="tester-field tester-choice-group">
+                <legend>Would you consider yourself active or cognizant of your health?</legend>
+                <div class="tester-choice-grid">
+                  <label class="tester-choice">
+                    <input type="radio" name="healthAware" value="yes" required />
+                    <span>Yes</span>
+                  </label>
+                  <label class="tester-choice">
+                    <input type="radio" name="healthAware" value="no" required />
+                    <span>No</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="tester-field">
+                <label for="tester-email">Email address</label>
+                <input class="tester-input" id="tester-email" name="email" type="email" required />
+              </div>
+
+              <div class="tester-field">
+                <label for="tester-phone">Phone number</label>
+                <input class="tester-input" id="tester-phone" name="phone" type="tel" required />
+              </div>
+
+              <fieldset class="tester-field tester-choice-group tester-field--full">
+                <legend>Which device do you use?</legend>
+                <div class="tester-choice-grid">
+                  <label class="tester-choice">
+                    <input type="radio" name="platform" value="iphone" required />
+                    <span>iPhone</span>
+                  </label>
+                  <label class="tester-choice">
+                    <input type="radio" name="platform" value="android" required />
+                    <span>Android</span>
+                  </label>
+                </div>
+                <p class="tester-platform-note">
+                  The Android version is not in testing yet, but Android applicants can still apply to be considered for later access.
+                </p>
+              </fieldset>
+            </div>
+
+            <div class="tester-form-actions">
+              <button class="button button--nav-outline" type="submit">Apply to be a tester</button>
+              <p class="tester-form-status" id="tester-form-status" aria-live="polite"></p>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="tester-dialog" id="health-professional-dialog" aria-labelledby="health-professional-dialog-title">
+    <div class="tester-dialog__inner">
+      <div class="tester-dialog__header">
+        <div>
+          <h3 id="health-professional-dialog-title">What counts as a health professional?</h3>
+        </div>
+        <button class="tester-dialog__close" type="button" id="health-professional-dialog-close" aria-label="Close dialog">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <div class="tester-dialog__body">
+        <p>
+          Check this box if you work professionally in a health-related role or directly support other people&apos;s health, wellness, or care.
+        </p>
+        <p>
+          This can include roles like physician, nurse, dietitian, therapist, health coach, fitness professional, personal trainer, or other clinical or wellness practitioners.
+        </p>
+        <p>
+          If you&apos;re unsure, leave it unchecked. We can always follow up later for more detail.
+        </p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="become-a-tester.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Share feature ideas, bugs, and product feedback with the Radiant team and community."
+  />
+  <title>Radiant | Feedback board</title>
+  <link rel="icon" href="/liftingSunLogoDepthLight.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="feedback-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="header site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="index.html" class="site-brand" aria-label="radiant home">
+        <img
+          class="site-brand__logo-image"
+          src="./assets/radiantLogo.png"
+          alt="radiant"
+          width="188"
+          height="48"
+        />
+      </a>
+
+      <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
+
+      <div class="site-header__actions">
+        <a class="button button--nav-outline button--compact" href="index.html#final-cta">Get Started</a>
+      </div>
+
+      <button
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="container mobile-menu__content">
+        <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav"></nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="feedback-board-section">
+      <div class="container">
+        <div class="feedback-board-shell is-empty" id="feedback-board-shell">
+          <div class="feedback-board-intro">
+            <p class="feedback-board-eyebrow">
+              <i data-lucide="messages-square" aria-hidden="true"></i>
+              Radiant community
+            </p>
+            <h1 id="feedback-heading">Get the conversation started.</h1>
+            <p id="feedback-subheading">
+              Share feature ideas, bugs, and product feedback. Vote on what matters most and add context with comments.
+            </p>
+          </div>
+
+          <div class="feedback-board-layout">
+            <aside class="feedback-panel feedback-compose">
+              <h2 class="feedback-compose__heading">Share feedback</h2>
+              <p class="feedback-compose__copy">
+                Tell us what should be improved, built next, or clarified.
+              </p>
+
+              <form class="feedback-form" id="feedback-form">
+                <fieldset class="feedback-fieldset">
+                  <legend class="feedback-label">Type</legend>
+                  <div class="feedback-type-grid" id="feedback-type-grid"></div>
+                </fieldset>
+
+                <label class="feedback-fieldset" for="feedback-description">
+                  <span class="feedback-label">Description</span>
+                  <textarea
+                    class="feedback-textarea"
+                    id="feedback-description"
+                    name="description"
+                    placeholder="Describe the idea, issue, or improvement you want to see."
+                    required
+                  ></textarea>
+                </label>
+
+                <div class="feedback-form__footer">
+                  <button class="button button--nav-outline" type="submit">Add to board</button>
+                  <p class="feedback-form__hint">Posts appear immediately on this board.</p>
+                </div>
+
+                <p class="feedback-form-status" id="feedback-form-status" aria-live="polite"></p>
+              </form>
+            </aside>
+
+            <section class="feedback-stream" aria-labelledby="feedback-stream-heading">
+              <div class="feedback-stream__toolbar">
+                <div>
+                  <h2 class="feedback-stream__heading" id="feedback-stream-heading">Feedback board</h2>
+                  <p class="feedback-empty-note" id="feedback-stream-note"></p>
+                </div>
+                <div class="feedback-sort-controls" id="feedback-sort-controls" aria-label="Sort feedback"></div>
+              </div>
+
+              <div class="feedback-list" id="feedback-list"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="feedback-board.js"></script>
+</body>
+</html>

@@ -36,13 +36,7 @@
       <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
 
       <div class="site-header__actions">
-        <a
-          class="button button--ghost button--compact"
-          href="mailto:support@radianthealthapp.com?subject=Radiant%20log%20in%20help"
-        >
-          Log in
-        </a>
-        <a class="button button--primary button--compact" href="#download">Get Started</a>
+        <a class="button button--nav-outline button--compact" href="#final-cta">Get Started</a>
       </div>
 
       <button
@@ -65,277 +59,77 @@
 
   <main id="main-content">
     <section class="hero-section section">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="hero-badge">Your all-in-one wellness companion</p>
+      <div class="container orbital-hero">
+        <h1 class="sr-only">Health can be hard. Now it&apos;s not.</h1>
 
-          <h1 class="hero-title">
-            Healthy habits.
-            <br />
-            Real progress.
-            <br />
-            <span>Radiant You.</span>
-          </h1>
-
-          <p class="hero-description">
-            Track nutrition, movement, sleep, and more, powered by AI insights and a supportive
-            community that grows with you.
-          </p>
-
-          <div class="hero-actions" id="download">
-            <a class="button button--primary" href="#final-cta">Get Started Free</a>
-            <a
-              class="button button--ghost"
-              href="mailto:support@radianthealthapp.com?subject=Radiant%20app%20download"
-            >
-              Download the App
-            </a>
+        <div class="orbital-hero__top" id="product">
+          <div class="orbital-hero__headline orbital-hero__headline--left">
+            <p>Health can be hard.</p>
           </div>
 
-          <div class="hero-characters" id="hero-characters"></div>
-        </div>
-
-        <div class="hero-visual" id="product">
-          <span class="sparkle sparkle--one" aria-hidden="true">
-            <i data-lucide="sparkles"></i>
-          </span>
-          <span class="sparkle sparkle--two" aria-hidden="true">
-            <i data-lucide="sparkles"></i>
-          </span>
-
-          <div class="dashboard-shell" id="dashboard">
-            <aside class="dashboard-rail" aria-label="Dashboard navigation">
-              <button class="dashboard-rail__item dashboard-rail__item--active" type="button" aria-label="Overview">
-                <i data-lucide="layout-grid"></i>
-              </button>
-              <button class="dashboard-rail__item" type="button" aria-label="Community">
-                <i data-lucide="users"></i>
-              </button>
-              <button class="dashboard-rail__item" type="button" aria-label="AI coach">
-                <i data-lucide="sparkles"></i>
-              </button>
-              <button class="dashboard-rail__item dashboard-rail__item--accent" type="button" aria-label="Add entry">
-                <i data-lucide="plus"></i>
-              </button>
-              <button class="dashboard-rail__item" type="button" aria-label="Insights">
-                <i data-lucide="chart-column"></i>
-              </button>
-              <button class="dashboard-rail__item" type="button" aria-label="Journal">
-                <i data-lucide="clipboard-list"></i>
-              </button>
-              <button class="dashboard-rail__item" type="button" aria-label="Profile">
-                <i data-lucide="user-round"></i>
-              </button>
-            </aside>
-
-            <div class="dashboard-main">
-              <div class="dashboard-main__top">
-                <div>
-                  <p class="dashboard-eyebrow">
-                    <i data-lucide="sparkles"></i>
-                    radiant
-                  </p>
-                  <div class="dashboard-heading-row">
-                    <h2>Dashboard</h2>
-                    <span class="day-chip">23</span>
-                  </div>
-                </div>
-
-                <div class="dashboard-date">
-                  <span>Jul 24, 2024</span>
-                  <a href="#insights">See Details</a>
-                </div>
-              </div>
-
-              <div class="dashboard-grid">
-                <article class="surface-card dashboard-card dashboard-card--sleep">
-                  <p class="card-kicker">Great morning, Kendall! ☀️</p>
-                  <p class="card-body">
-                    You&apos;re on track to have a great day.
-                  </p>
-                  <div class="sleep-summary">
-                    <div>
-                      <strong>7h 30m</strong>
-                      <span>Time in bed</span>
-                    </div>
-                    <a href="#real-life">Check your recap</a>
-                  </div>
-                </article>
-
-                <article class="surface-card dashboard-card dashboard-card--water">
-                  <div>
-                    <h3>Water Intake</h3>
-                    <strong>48 <span>oz</span></strong>
-                    <p>of 112 oz goal</p>
-                  </div>
-                  <div class="progress-circle" aria-label="38 percent of water goal completed">
-                    <div class="progress-circle__inner">
-                      <strong>38%</strong>
-                      <span>of the way</span>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="surface-card dashboard-card dashboard-card--calories">
-                  <div class="dashboard-card__heading">
-                    <h3>Calories</h3>
-                    <p>Net</p>
-                  </div>
-                  <div class="calorie-metric">380 <span>cal</span></div>
-                  <svg class="mini-line-chart" viewBox="0 0 280 80" aria-hidden="true">
-                    <path d="M10 46 C36 46, 40 56, 68 53 S112 23, 142 38 S188 67, 218 42 S248 26, 270 30" />
-                    <circle cx="55" cy="54" r="5"></circle>
-                    <circle cx="141" cy="38" r="5"></circle>
-                    <circle cx="223" cy="41" r="5"></circle>
-                  </svg>
-                  <div class="chart-legend">
-                    <div>
-                      <span class="legend-dot legend-dot--blue"></span>
-                      Goal 1,800
-                    </div>
-                    <div>
-                      <span class="legend-dot legend-dot--red"></span>
-                      Food 1,420
-                    </div>
-                    <div>
-                      <span class="legend-dot legend-dot--green"></span>
-                      Exercise 420
-                    </div>
-                  </div>
-                </article>
-
-                <article class="surface-card dashboard-card dashboard-card--focus" id="insights">
-                  <div class="dashboard-card__heading">
-                    <h3>Today&apos;s Focus</h3>
-                    <span class="insight-pill">Movement +</span>
-                  </div>
-                  <div class="focus-meta">
-                    <span>Tomorrow tip</span>
-                    <div class="toggle-pill" aria-hidden="true">
-                      <span></span>
-                    </div>
-                  </div>
-                  <p class="focus-body">
-                    Evening walk completed! Great job on the 30min walk. You&apos;ve hit your movement
-                    goal 3 days in a row.
-                  </p>
-                  <div class="focus-footer">
-                    <div class="focus-character" id="dashboard-sun"></div>
-                    <p>Keep the momentum going!</p>
-                  </div>
-                </article>
-
-                <article class="surface-card dashboard-card dashboard-card--macros">
-                  <h3>Macros</h3>
-                  <div class="macro-rings">
-                    <div class="macro-ring macro-ring--protein">
-                      <span>45%</span>
-                      <small>Protein</small>
-                    </div>
-                    <div class="macro-ring macro-ring--carbs">
-                      <span>30%</span>
-                      <small>Carbs</small>
-                    </div>
-                    <div class="macro-ring macro-ring--fat">
-                      <span>25%</span>
-                      <small>Fat</small>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="surface-card dashboard-card dashboard-card--readiness">
-                  <div>
-                    <h3>Readiness</h3>
-                    <p>Good</p>
-                  </div>
-                  <div class="readiness-grid">
-                    <div>
-                      <span>Score</span>
-                      <strong>7.5/10</strong>
-                    </div>
-                    <div>
-                      <span>Calories Remaining</span>
-                      <strong>200</strong>
-                    </div>
-                  </div>
-                </article>
-              </div>
+          <div class="orbital-stage" aria-label="Animated Radiant health globe">
+            <div class="orbital-stage__aura"></div>
+            <div class="orbital-rings" aria-hidden="true">
+              <span class="orbital-ring orbital-ring--one"></span>
+              <span class="orbital-ring orbital-ring--two"></span>
+              <span class="orbital-ring orbital-ring--three"></span>
+              <span class="orbital-ring orbital-ring--four"></span>
+            </div>
+            <div class="orbital-sparkles" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="orbital-globe">
+              <div class="orbital-globe__core"></div>
+              <div class="orbital-widget-cloud" id="orbital-widgets"></div>
             </div>
           </div>
 
-          <aside class="phone-shell" aria-label="Mobile sleep summary preview">
-            <div class="phone-shell__top">
-              <button type="button" aria-label="Go back">
-                <i data-lucide="arrow-left"></i>
-              </button>
-              <div>
-                <h3>Sleep</h3>
-                <p>Jul 15</p>
-              </div>
-              <button type="button" aria-label="Open sleep settings">
-                <i data-lucide="settings-2"></i>
-              </button>
-            </div>
-
-            <div class="phone-hero-metric">
-              <strong>7h 30m</strong>
-              <span>Time in bed</span>
-              <p>Good quality</p>
-            </div>
-
-            <div class="phone-stat-grid">
-              <article>
-                <small>Awake</small>
-                <strong>15m</strong>
-              </article>
-              <article>
-                <small>Light</small>
-                <strong>2h 20m</strong>
-              </article>
-              <article>
-                <small>Deep</small>
-                <strong>2h 10m</strong>
-              </article>
-            </div>
-
-            <div class="phone-chart-card">
-              <div class="phone-chart-card__heading">
-                <h4>Pulse (bpm)</h4>
-                <p>Rest • Elevated</p>
-              </div>
-              <div class="pulse-bars" aria-hidden="true">
-                <span class="pulse-bars__bar pulse-bars__bar--muted"></span>
-                <span class="pulse-bars__bar pulse-bars__bar--muted"></span>
-                <span class="pulse-bars__bar"></span>
-                <span class="pulse-bars__bar"></span>
-                <span class="pulse-bars__bar pulse-bars__bar--tall"></span>
-                <span class="pulse-bars__bar pulse-bars__bar--tall"></span>
-              </div>
-              <div class="pulse-days">
-                <span>Thu</span>
-                <span>Fri</span>
-                <span>Sat</span>
-                <span>Sun</span>
-                <span>Mon</span>
-                <span>Tue</span>
-              </div>
-            </div>
-
-            <div class="phone-bottom-nav" aria-hidden="true">
-              <i data-lucide="calendar-range"></i>
-              <i data-lucide="chart-column"></i>
-              <i data-lucide="sparkles"></i>
-              <i data-lucide="house"></i>
-            </div>
-          </aside>
+          <div class="orbital-hero__headline orbital-hero__headline--right">
+            <p>Now it&apos;s not.</p>
+          </div>
         </div>
+
+        <div class="hero-cast" id="hero-cast"></div>
       </div>
     </section>
 
-    <section class="section value-strip" aria-labelledby="value-strip-heading">
+    <section class="section thinking-section" aria-labelledby="thinking-section-heading">
       <div class="container">
-        <h2 class="sr-only" id="value-strip-heading">Core benefits</h2>
-        <div class="value-strip__panel" id="value-grid"></div>
+        <div class="thinking-section__layout">
+          <div class="thinking-section__visual thinking-section__visual--left">
+            <img
+              src="./assets/notebookStairsBrain.png"
+              alt="Brain character climbing a stack of health notebooks"
+              width="680"
+              height="760"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="thinking-section__content">
+            <div class="thinking-section__copy">
+              <p class="thinking-section__eyebrow">How much time do you spend thinking about your health?</p>
+              <h2 id="thinking-section-heading">Let radiant do the thinking.</h2>
+            </div>
+
+            <div class="thinking-section__visual thinking-section__visual--right">
+              <img
+                src="./assets/characterScreenshots.png"
+                alt="Radiant app screenshots with character helpers"
+                width="1120"
+                height="700"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

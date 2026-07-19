@@ -1,44 +1,56 @@
 const supportEmail = "support@radianthealthapp.com";
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
+const navCtaHref = currentPage === "index.html" ? "#final-cta" : "index.html#final-cta";
+const supportFormEndpoint = `https://formsubmit.co/ajax/${supportEmail}`;
 
 const assetPaths = {
-  heroCharacters: "./assets/hero-characters.png",
   sunCharacter: "./assets/talkingSun.png",
   waterCharacter: "./assets/eatingWaterDropDepth.png",
   appleCharacter: "./assets/appleKarateDepth.png",
+  globeCharacters: "./assets/globeCharacters.png",
   foodLogging: "./assets/food-logging.png",
   exerciseRecovery: "./assets/exercise-recovery.png",
   community: "./assets/community.png",
   testerCharacter: "./assets/talkingSun.png",
+  widgetSleep: "./assets/globeWidgetSleep.png",
+  widgetWater: "./assets/globeWidgetWater.png",
+  widgetNutrition: "./assets/globeWidgetNutrition.png",
+  widgetScore: "./assets/globeWidgetScore.png",
+  widgetMood: "./assets/globeWidgetMood.png",
+  widgetMovement: "./assets/globeWidgetMovement.png",
+  widgetMindfulness: "./assets/globeWidgetMindfulness.png",
+  widgetHeart: "./assets/globeWidgetHeart.png",
+  widgetInsights: "./assets/globeWidgetInsights.png",
+  widgetEnergy: "./assets/globeWidgetEnergy.png",
 };
 
 const navItems = [
-  {
-    label: "Product",
-    children: [
-      { label: "Overview", href: "#product" },
-      { label: "Dashboard", href: "#dashboard" },
-      { label: "Mobile Logging", href: "#real-life" },
-    ],
-  },
-  {
-    label: "Features",
-    children: [
-      { label: "Food Logging", href: "#features" },
-      { label: "AI Insights", href: "#insights" },
-      { label: "Community", href: "#tester-cta" },
-    ],
-  },
-  { label: "For Coaches", href: "#coaches" },
-  { label: "Community", href: "#tester-cta" },
-  { label: "Pricing", href: "#final-cta" },
-  {
-    label: "Resources",
-    children: [
-      { label: "Privacy Policy", href: "privacyPolicy.html" },
-      { label: "Support", href: `mailto:${supportEmail}?subject=Radiant%20support` },
-      { label: "What to Expect", href: "#features" },
-    ],
-  },
+  { label: "Product", href: "#" },
+  { label: "Science", href: "#" },
+  { label: "About", href: "#" },
+  { label: "Feedback board", href: "feedback-board.html" },
+  { label: "Become a Tester", href: "become-a-tester.html" },
+];
+
+function getNavLinkAttributes(item) {
+  const isCurrentPage = item.href !== "#" && item.href === currentPage;
+
+  return isCurrentPage
+    ? ' class="site-nav__link site-nav__link--active" aria-current="page"'
+    : ' class="site-nav__link"';
+}
+
+const orbitalWidgets = [
+  { title: "Sleep", assetKey: "widgetSleep", tone: "lavender", x: "6px", y: "-164px", width: "138px", rotate: "-4deg" },
+  { title: "Water", assetKey: "widgetWater", tone: "blue", x: "167px", y: "-112px", width: "118px", rotate: "-5deg" },
+  { title: "Nutrition", assetKey: "widgetNutrition", tone: "sage", x: "-162px", y: "-92px", width: "104px", rotate: "-7deg" },
+  { title: "Wellness Score", assetKey: "widgetScore", tone: "gold", x: "0px", y: "-2px", width: "116px", rotate: "-1deg" },
+  { title: "Mood", assetKey: "widgetMood", tone: "sage", x: "-154px", y: "30px", width: "110px", rotate: "2deg" },
+  { title: "Movement", assetKey: "widgetMovement", tone: "blue", x: "126px", y: "22px", width: "128px", rotate: "3deg" },
+  { title: "Mindfulness", assetKey: "widgetMindfulness", tone: "lavender", x: "112px", y: "132px", width: "96px", rotate: "-2deg" },
+  { title: "Heart Rate", assetKey: "widgetHeart", tone: "warm", x: "8px", y: "148px", width: "132px", rotate: "-5deg" },
+  { title: "Insights", assetKey: "widgetInsights", tone: "warm", x: "-114px", y: "132px", width: "106px", rotate: "4deg" },
+  { title: "Energy", assetKey: "widgetEnergy", tone: "gold", x: "194px", y: "72px", width: "82px", rotate: "4deg" },
 ];
 
 const valueProps = [
@@ -190,7 +202,7 @@ function renderDesktopNav(items) {
   return items
     .map((item) => {
       if (!item.children) {
-        return `<a class="site-nav__link" href="${item.href}">${item.label}</a>`;
+        return `<a${getNavLinkAttributes(item)} href="${item.href}">${item.label}</a>`;
       }
 
       const childLinks = item.children
@@ -222,7 +234,10 @@ function renderMobileNav(items) {
   const navList = items
     .map((item) => {
       if (!item.children) {
-        return `<a class="mobile-nav__link" href="${item.href}">${item.label}</a>`;
+        const currentPageAttributes =
+          item.href !== "#" && item.href === currentPage ? ' aria-current="page"' : "";
+
+        return `<a class="mobile-nav__link" href="${item.href}"${currentPageAttributes}>${item.label}</a>`;
       }
 
       const childLinks = item.children
@@ -252,8 +267,7 @@ function renderMobileNav(items) {
   return `
     ${navList}
     <div class="mobile-nav__actions">
-      <a class="button button--ghost" href="mailto:${supportEmail}?subject=Radiant%20log%20in%20help">Log in</a>
-      <a class="button button--primary" href="#download">Get Started</a>
+      <a class="button button--nav-outline" href="${navCtaHref}">Get Started</a>
     </div>
   `;
 }
@@ -437,45 +451,98 @@ function renderHeroCharacters() {
   `;
 }
 
+function renderHeroCast() {
+  return assetFrame({
+    key: "globeCharacters",
+    label: "Globe characters asset",
+    tone: "warm",
+    className: "hero-cast__asset",
+    alt: "Radiant characters looking at the wellness globe",
+  });
+}
+
+function renderOrbitalWidgets(items) {
+  return items
+    .map(
+      (item) => `
+        <article
+          class="orbital-widget"
+          style="--widget-x: ${item.x}; --widget-y: ${item.y}; --widget-width: ${item.width}; --widget-rotate: ${item.rotate};"
+        >
+          <p class="orbital-widget__title">${item.title}</p>
+          ${assetFrame({
+            key: item.assetKey,
+            label: `${item.title} widget asset`,
+            tone: item.tone,
+            className: "orbital-widget__asset",
+            alt: `${item.title} widget placeholder`,
+          })}
+        </article>
+      `,
+    )
+    .join("");
+}
+
 function mountContent() {
-  document.getElementById("desktop-nav").innerHTML = renderDesktopNav(navItems);
-  document.getElementById("mobile-nav").innerHTML = renderMobileNav(navItems);
-  document.getElementById("value-grid").innerHTML = renderValueProps(valueProps);
-  document.getElementById("feature-grid").innerHTML = renderFeatures(features);
-  document.getElementById("benefit-list").innerHTML = renderBenefits(benefits);
-  document.getElementById("coach-checklist").innerHTML = renderChecklist(coachChecklist);
-  document.getElementById("tester-benefits").innerHTML = renderTesterBenefits(testerBenefits);
-  document.getElementById("footer-links").innerHTML = renderFooterColumns(footerColumns);
-  document.getElementById("social-links").innerHTML = renderSocials(socials);
-  document.getElementById("hero-characters").innerHTML = renderHeroCharacters();
-  document.getElementById("dashboard-sun").innerHTML = assetFrame({
-    key: "sunCharacter",
-    label: "Sun character asset",
-    tone: "gold",
-    className: "tiny-asset",
-    alt: "Sun character placeholder",
-  });
-  document.getElementById("water-peek").innerHTML = assetFrame({
-    key: "waterCharacter",
-    label: "Water character asset",
-    tone: "blue",
-    className: "peek-asset",
-    alt: "Water character placeholder",
-  });
-  document.getElementById("tester-character").innerHTML = assetFrame({
-    key: "testerCharacter",
-    label: "Tester character asset",
-    tone: "gold",
-    className: "tester-asset",
-    alt: "Tester character placeholder",
-  });
-  document.getElementById("final-cta-character").innerHTML = assetFrame({
-    key: "sunCharacter",
-    label: "Sun character asset",
-    tone: "gold",
-    className: "final-asset",
-    alt: "Sun character placeholder",
-  });
+  const setHTML = (id, html) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.innerHTML = html;
+    }
+  };
+
+  setHTML("desktop-nav", renderDesktopNav(navItems));
+  setHTML("mobile-nav", renderMobileNav(navItems));
+  setHTML("value-grid", renderValueProps(valueProps));
+  setHTML("feature-grid", renderFeatures(features));
+  setHTML("benefit-list", renderBenefits(benefits));
+  setHTML("coach-checklist", renderChecklist(coachChecklist));
+  setHTML("tester-benefits", renderTesterBenefits(testerBenefits));
+  setHTML("footer-links", renderFooterColumns(footerColumns));
+  setHTML("social-links", renderSocials(socials));
+  setHTML("hero-cast", renderHeroCast());
+  setHTML("orbital-widgets", renderOrbitalWidgets(orbitalWidgets));
+  setHTML(
+    "dashboard-sun",
+    assetFrame({
+      key: "sunCharacter",
+      label: "Sun character asset",
+      tone: "gold",
+      className: "tiny-asset",
+      alt: "Sun character placeholder",
+    }),
+  );
+  setHTML(
+    "water-peek",
+    assetFrame({
+      key: "waterCharacter",
+      label: "Water character asset",
+      tone: "blue",
+      className: "peek-asset",
+      alt: "Water character placeholder",
+    }),
+  );
+  setHTML(
+    "tester-character",
+    assetFrame({
+      key: "testerCharacter",
+      label: "Tester character asset",
+      tone: "gold",
+      className: "tester-asset",
+      alt: "Tester character placeholder",
+    }),
+  );
+  setHTML(
+    "final-cta-character",
+    assetFrame({
+      key: "sunCharacter",
+      label: "Sun character asset",
+      tone: "gold",
+      className: "final-asset",
+      alt: "Sun character placeholder",
+    }),
+  );
 }
 
 function initAssetFallbacks() {
@@ -531,6 +598,10 @@ function initMobileMenu() {
   const menuButton = document.querySelector(".menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
 
+  if (!menuButton || !mobileMenu) {
+    return;
+  }
+
   function setMenuState(isOpen) {
     menuButton.setAttribute("aria-expanded", String(isOpen));
     mobileMenu.hidden = !isOpen;
@@ -567,6 +638,10 @@ function initNewsletterForm() {
   const emailInput = document.getElementById("newsletter-email");
   const status = document.getElementById("newsletter-status");
 
+  if (!form || !emailInput || !status) {
+    return;
+  }
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -582,13 +657,50 @@ function initNewsletterForm() {
   });
 }
 
+async function submitSupportEmail({ subject, fields, replyTo }) {
+  const payload = {
+    _subject: subject,
+    _template: "table",
+    _url: window.location.href,
+    ...fields,
+  };
+
+  if (replyTo) {
+    payload._replyto = replyTo;
+  }
+
+  const response = await fetch(supportFormEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    const message =
+      typeof data?.message === "string"
+        ? data.message
+        : "Unable to deliver the submission email right now.";
+
+    throw new Error(message);
+  }
+
+  return data;
+}
+
 function initApp() {
   mountContent();
   initAssetFallbacks();
   initDesktopDropdowns();
   initMobileMenu();
   initNewsletterForm();
-  lucide.createIcons();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 initApp();
