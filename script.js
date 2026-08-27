@@ -8,20 +8,21 @@ const assetPaths = {
   waterCharacter: "./assets/eatingWaterDropDepth.png",
   appleCharacter: "./assets/appleKarateDepth.png",
   globeCharacters: "./assets/globeCharacters.png",
+  caloriesWidget: "./assets/caloriesWidget.png",
+  workoutsWidget: "./assets/workoutsWidget.png",
+  wellnessWidget: "./assets/wellnessWidget.png",
+  waterWidget: "./assets/waterWidget.png",
+  sleepWidget: "./assets/sleepWidget.png",
+  todaysFocusWidget: "./assets/todaysFocusWidget.png",
+  customNutrientsWidget: "./assets/customNutrientsWidget.png",
+  caffeineWidget: "./assets/caffeineWidget.png",
+  stepsWidget: "./assets/stepsWidget.png",
+  supplementsWidget: "./assets/supplementsWidget.png",
+  weightWidget: "./assets/weightWidget.png",
   foodLogging: "./assets/food-logging.png",
   exerciseRecovery: "./assets/exercise-recovery.png",
   community: "./assets/community.png",
   testerCharacter: "./assets/talkingSun.png",
-  widgetSleep: "./assets/globeWidgetSleep.png",
-  widgetWater: "./assets/globeWidgetWater.png",
-  widgetNutrition: "./assets/globeWidgetNutrition.png",
-  widgetScore: "./assets/globeWidgetScore.png",
-  widgetMood: "./assets/globeWidgetMood.png",
-  widgetMovement: "./assets/globeWidgetMovement.png",
-  widgetMindfulness: "./assets/globeWidgetMindfulness.png",
-  widgetHeart: "./assets/globeWidgetHeart.png",
-  widgetInsights: "./assets/globeWidgetInsights.png",
-  widgetEnergy: "./assets/globeWidgetEnergy.png",
 };
 
 const navItems = [
@@ -40,17 +41,18 @@ function getNavLinkAttributes(item) {
     : ' class="site-nav__link"';
 }
 
-const orbitalWidgets = [
-  { title: "Sleep", assetKey: "widgetSleep", tone: "lavender", x: "6px", y: "-164px", width: "138px", rotate: "-4deg" },
-  { title: "Water", assetKey: "widgetWater", tone: "blue", x: "167px", y: "-112px", width: "118px", rotate: "-5deg" },
-  { title: "Nutrition", assetKey: "widgetNutrition", tone: "sage", x: "-162px", y: "-92px", width: "104px", rotate: "-7deg" },
-  { title: "Wellness Score", assetKey: "widgetScore", tone: "gold", x: "0px", y: "-2px", width: "116px", rotate: "-1deg" },
-  { title: "Mood", assetKey: "widgetMood", tone: "sage", x: "-154px", y: "30px", width: "110px", rotate: "2deg" },
-  { title: "Movement", assetKey: "widgetMovement", tone: "blue", x: "126px", y: "22px", width: "128px", rotate: "3deg" },
-  { title: "Mindfulness", assetKey: "widgetMindfulness", tone: "lavender", x: "112px", y: "132px", width: "96px", rotate: "-2deg" },
-  { title: "Heart Rate", assetKey: "widgetHeart", tone: "warm", x: "8px", y: "148px", width: "132px", rotate: "-5deg" },
-  { title: "Insights", assetKey: "widgetInsights", tone: "warm", x: "-114px", y: "132px", width: "106px", rotate: "4deg" },
-  { title: "Energy", assetKey: "widgetEnergy", tone: "gold", x: "194px", y: "72px", width: "82px", rotate: "4deg" },
+const heroWidgets = [
+  { title: "Water Intake", assetKey: "waterWidget", tone: "blue", className: "hero-widget-card--water", alt: "Water intake widget" },
+  { title: "Calories", assetKey: "caloriesWidget", tone: "blue", className: "hero-widget-card--calories", alt: "Calories widget" },
+  { title: "Workouts", assetKey: "workoutsWidget", tone: "blue", className: "hero-widget-card--workouts", alt: "Workouts widget" },
+  { title: "Wellness Tracking", assetKey: "wellnessWidget", tone: "gold", className: "hero-widget-card--wellness", alt: "Wellness tracking widget" },
+  { title: "Steps", assetKey: "stepsWidget", tone: "sage", className: "hero-widget-card--steps", alt: "Steps widget" },
+  { title: "Sleep", assetKey: "sleepWidget", tone: "lavender", className: "hero-widget-card--sleep", alt: "Sleep widget" },
+  { title: "Today's Focus", assetKey: "todaysFocusWidget", tone: "sage", className: "hero-widget-card--focus", alt: "Today's focus widget" },
+  { title: "Caffeine", assetKey: "caffeineWidget", tone: "warm", className: "hero-widget-card--caffeine", alt: "Caffeine widget" },
+  { title: "Custom Nutrients", assetKey: "customNutrientsWidget", tone: "sage", className: "hero-widget-card--custom", alt: "Custom nutrients widget" },
+  { title: "Supplements", assetKey: "supplementsWidget", tone: "warm", className: "hero-widget-card--supplements", alt: "Supplements widget" },
+  { title: "Weight", assetKey: "weightWidget", tone: "warm", className: "hero-widget-card--weight", alt: "Weight widget" },
 ];
 
 const valueProps = [
@@ -451,36 +453,47 @@ function renderHeroCharacters() {
   `;
 }
 
-function renderHeroCast() {
-  return assetFrame({
-    key: "globeCharacters",
-    label: "Globe characters asset",
-    tone: "warm",
-    className: "hero-cast__asset",
-    alt: "Radiant characters looking at the wellness globe",
-  });
-}
+function renderHeroWidgetGallery(items) {
+  const columnCount = 4;
+  const columns = Array.from({ length: columnCount }, () => []);
 
-function renderOrbitalWidgets(items) {
-  return items
+  items.forEach((item, index) => {
+    columns[index % columnCount].push(item);
+  });
+
+  return columns
     .map(
-      (item) => `
-        <article
-          class="orbital-widget"
-          style="--widget-x: ${item.x}; --widget-y: ${item.y}; --widget-width: ${item.width}; --widget-rotate: ${item.rotate};"
-        >
-          <p class="orbital-widget__title">${item.title}</p>
-          ${assetFrame({
-            key: item.assetKey,
-            label: `${item.title} widget asset`,
-            tone: item.tone,
-            className: "orbital-widget__asset",
-            alt: `${item.title} widget placeholder`,
-          })}
-        </article>
+      (columnItems, columnIndex) => `
+        <div class="hero-widget-column hero-widget-column--${columnIndex + 1}">
+          ${columnItems
+            .map(
+              (item) => `
+                <img
+                  class="hero-widget-image ${item.className}"
+                  src="${assetPaths[item.assetKey]}"
+                  alt="${item.alt}"
+                  loading="lazy"
+                  decoding="async"
+                />
+              `,
+            )
+            .join("")}
+        </div>
       `,
     )
     .join("");
+}
+
+function renderHeroCast() {
+  return `
+    <img
+      class="hero-cast__image"
+      src="${assetPaths.globeCharacters}"
+      alt="Radiant characters looking toward the hero widgets"
+      loading="lazy"
+      decoding="async"
+    />
+  `;
 }
 
 function mountContent() {
@@ -501,8 +514,8 @@ function mountContent() {
   setHTML("tester-benefits", renderTesterBenefits(testerBenefits));
   setHTML("footer-links", renderFooterColumns(footerColumns));
   setHTML("social-links", renderSocials(socials));
+  setHTML("hero-widget-gallery", renderHeroWidgetGallery(heroWidgets));
   setHTML("hero-cast", renderHeroCast());
-  setHTML("orbital-widgets", renderOrbitalWidgets(orbitalWidgets));
   setHTML(
     "dashboard-sun",
     assetFrame({

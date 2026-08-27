@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260827-4" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="landing-page">
@@ -67,26 +67,9 @@
             <p>Health can be hard.</p>
           </div>
 
-          <div class="orbital-stage" aria-label="Animated Radiant health globe">
+          <div class="orbital-stage" aria-label="Radiant widget gallery">
             <div class="orbital-stage__aura"></div>
-            <div class="orbital-rings" aria-hidden="true">
-              <span class="orbital-ring orbital-ring--one"></span>
-              <span class="orbital-ring orbital-ring--two"></span>
-              <span class="orbital-ring orbital-ring--three"></span>
-              <span class="orbital-ring orbital-ring--four"></span>
-            </div>
-            <div class="orbital-sparkles" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div class="orbital-globe">
-              <div class="orbital-globe__core"></div>
-              <div class="orbital-widget-cloud" id="orbital-widgets"></div>
-            </div>
+            <div class="hero-widget-gallery" id="hero-widget-gallery"></div>
           </div>
 
           <div class="orbital-hero__headline orbital-hero__headline--right">
@@ -133,146 +116,46 @@
       </div>
     </section>
 
-    <section class="section features-section" id="features" aria-labelledby="features-heading">
+    <section class="section wearable-section" id="features" aria-labelledby="wearable-heading">
       <div class="container">
-        <div class="section-heading">
-          <h2 id="features-heading">
-            Everything you need to thrive
-            <span class="heading-sparkle" aria-hidden="true">
-              <i data-lucide="sparkles"></i>
-            </span>
-          </h2>
-          <p>Powerful tools. Thoughtful design. Made for real life.</p>
-        </div>
+        <div class="wearable-section__content">
+          <div class="wearable-section__visual">
+            <img
+              src="./assets/activeHeart.png"
+              alt="Radiant heart characters exercising and celebrating"
+              width="1600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
 
-        <div class="feature-grid" id="feature-grid"></div>
+          <div class="wearable-section__copy">
+            <h2 id="wearable-heading">Got a wearable smart device? Great.</h2>
+            <p>
+              It will sync activity, calories burnt, steps, mileage, sleep, sleep rating, sleep stages, and heart rate variability.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section insight-section" aria-labelledby="real-life-heading">
-      <div class="container insight-layout">
-        <article class="surface-card real-life-card" id="real-life">
-          <div class="real-life-card__copy">
-            <h2 id="real-life-heading">
-              Built for real life
-              <span class="heading-sparkle" aria-hidden="true">
-                <i data-lucide="sparkles"></i>
-              </span>
-            </h2>
-            <p>
-              Log effortlessly. Stay consistent. Let Radiant handle the rest.
-            </p>
-
-            <div class="benefit-list" id="benefit-list"></div>
-
-            <a class="button button--success" href="#features">See how it works</a>
-          </div>
-
-          <div class="real-life-card__visual">
-            <div class="water-peek" id="water-peek"></div>
-
-            <div class="mini-phone">
-              <div class="mini-phone__header">
-                <button type="button" aria-label="Back to meals">
-                  <i data-lucide="arrow-left"></i>
-                </button>
-                <h3>Log Food</h3>
-                <button type="button" aria-label="More options">
-                  <i data-lucide="more-horizontal"></i>
-                </button>
-              </div>
-
-              <div class="meal-tabs" aria-label="Meal categories">
-                <span>Breakfast</span>
-                <span>Lunch</span>
-                <span>Dinner</span>
-                <span class="is-active">Snack</span>
-              </div>
-
-              <label class="search-field">
-                <i data-lucide="search"></i>
-                <input type="text" value="Search food" aria-label="Search food" readonly />
-              </label>
-
-              <div class="mini-phone__actions">
-                <button class="pill-action pill-action--primary" type="button">AI Scan</button>
-                <button class="pill-action" type="button">Photo Scan</button>
-              </div>
-
-              <article class="food-entry">
-                <div class="food-entry__icon">
-                  <i data-lucide="salad"></i>
-                </div>
-                <div>
-                  <strong>Oatmeal</strong>
-                  <p>1 cup • 150 cal</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="workflow-steps" aria-label="Radiant workflow">
-              <div class="workflow-step">
-                <span><i data-lucide="clipboard-list"></i></span>
-                <strong>Log</strong>
-              </div>
-              <div class="workflow-step">
-                <span><i data-lucide="sparkles"></i></span>
-                <strong>AI Insights</strong>
-              </div>
-              <div class="workflow-step">
-                <span><i data-lucide="heart"></i></span>
-                <strong>Feel progress</strong>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="surface-card coach-card" id="coaches">
-          <div class="coach-card__copy">
-            <h2>
-              For coaches
-              <br />
-              and professionals
-              <span class="heading-sparkle" aria-hidden="true">
-                <i data-lucide="sparkles"></i>
-              </span>
-            </h2>
-            <p>Actionable data. Happier clients. Better outcomes.</p>
-            <div class="coach-checklist" id="coach-checklist"></div>
-            <a class="button button--success" href="#tester-cta">Learn about coaching</a>
-          </div>
-
-          <div class="coach-analytics">
-            <article class="analytics-card">
-              <p class="analytics-card__label">Insights</p>
-              <strong>1,342 cal</strong>
-              <span>Daily average intake</span>
-              <svg viewBox="0 0 220 90" aria-hidden="true">
-                <path d="M12 52 C42 16, 66 20, 86 48 S130 75, 152 56 S188 24, 208 36" />
-              </svg>
-            </article>
-
-            <article class="analytics-card analytics-card--points">
-              <p class="analytics-card__label">Top Daily Points</p>
-              <div class="progress-list">
-                <div>
-                  <span>Nutrition</span>
-                  <div class="progress-track">
-                    <span style="width: 89%"></span>
-                  </div>
-                  <strong>89%</strong>
-                </div>
-                <div>
-                  <span>Sleep</span>
-                  <div class="progress-track progress-track--sleep">
-                    <span style="width: 67%"></span>
-                  </div>
-                  <strong>67%</strong>
-                </div>
-              </div>
-            </article>
-          </div>
-        </article>
+    <section class="section conversation-section" id="insights" aria-labelledby="conversation-heading">
+      <div class="container">
+        <div class="conversation-section__content">
+          <span class="conversation-anchor" id="real-life" aria-hidden="true"></span>
+          <span class="conversation-anchor" id="coaches" aria-hidden="true"></span>
+          <h2 class="sr-only" id="conversation-heading">Radiant characters walking together in conversation</h2>
+          <img
+            class="conversation-section__image"
+            src="./assets/walkingCharacters.png"
+            alt="Radiant characters walking together with speech bubbles"
+            width="1672"
+            height="941"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </div>
     </section>
 
