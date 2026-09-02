@@ -1760,6 +1760,42 @@ ol {
   padding-inline: clamp(1rem, 2vw, 2.25rem);
 }
 
+@media (max-width: 1600px) and (min-width: 1025px) {
+  .community-preview-section__content {
+    position: relative;
+    grid-template-columns: 1fr;
+    min-height: clamp(560px, 44vw, 700px);
+    align-items: stretch;
+  }
+
+  .community-preview-scene-frame--left,
+  .community-preview-scene-frame--right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: clamp(260px, 27vw, 420px);
+    height: auto;
+    z-index: 1;
+  }
+
+  .community-preview-scene-frame--left {
+    left: 0;
+  }
+
+  .community-preview-scene-frame--right {
+    right: 0;
+  }
+
+  .community-preview-phones {
+    position: relative;
+    z-index: 2;
+    width: 960px;
+    max-width: none;
+    padding-inline: 0;
+    align-self: end;
+  }
+}
+
 .insight-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
@@ -3783,6 +3819,38 @@ body.tester-page {
   }
 }
 
+@media (max-width: 750px) {
+  .community-preview-section__content {
+    gap: 0;
+  }
+
+  .community-preview-scene-frame--top,
+  .community-preview-scene-frame--bottom {
+    position: relative;
+    z-index: 1;
+  }
+
+  .community-preview-scene-frame--top {
+    margin-bottom: clamp(-4.5rem, -12vw, -2.8rem);
+  }
+
+  .community-preview-scene-frame--bottom {
+    margin-top: clamp(-4rem, -10vw, -2.4rem);
+  }
+
+  .community-preview-phones {
+    position: relative;
+    z-index: 2;
+    width: min(100%, 300px);
+    justify-self: center;
+    margin-top: clamp(-3.6rem, -9vw, -2.4rem);
+    margin-bottom: clamp(-3.2rem, -8vw, -2rem);
+    padding-inline: 0;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+}
+
 @media (max-width: 480px) {
   .wearable-section {
     padding-top: 1.35rem;
@@ -3849,14 +3917,11 @@ body.tester-page {
     margin-right: -50vw;
   }
 
-  .community-preview-scene-frame--top,
-  .community-preview-scene-frame--bottom,
   .community-preview-phones {
-    width: 100%;
-  }
-
-  .community-preview-phones {
+    width: min(100%, 260px);
     grid-template-columns: 1fr;
+    justify-self: center;
+    padding-inline: 0;
     gap: 0.85rem;
   }
 
