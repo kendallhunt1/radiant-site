@@ -1,5 +1,88 @@
-.privacyFooter {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+body.privacy-page {
+  min-height: 100vh;
+  background: #fcf7f0;
+}
+
+.privacy-policy-section {
+  padding: clamp(2.75rem, 7vw, 5.5rem) 0;
+}
+
+.policy-container {
+  max-width: 900px;
+  padding: clamp(1.4rem, 4vw, 3rem);
+  border: 1px solid rgba(48, 52, 59, 0.07);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: var(--shadow-soft);
+}
+
+.policy-container h1 {
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.08;
+  text-align: center;
+}
+
+.policy-container h1 + p {
+  margin-bottom: clamp(1.8rem, 4vw, 2.6rem);
+  color: #536173;
+  font-size: 0.98rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.policy-container h3 {
+  margin-top: clamp(1.45rem, 3vw, 2.1rem);
+  margin-bottom: 0.55rem;
+  color: #445264;
+  font-family: "Lora", Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  font-weight: 600;
+}
+
+.policy-container p,
+.policy-container li {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.policy-container p {
+  margin-bottom: 1rem;
+}
+
+.policy-container ul {
+  display: grid;
+  gap: 0.48rem;
+  margin: 0.7rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.policy-container li::marker {
+  color: var(--primary-blue);
+}
+
+.policy-email-box {
+  margin-top: 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(153, 197, 242, 0.2);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.policy-email-box p {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .privacy-policy-section {
+    padding-top: 2rem;
+  }
+
+  .policy-container {
+    border-radius: 22px;
+  }
 }
