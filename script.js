@@ -1,6 +1,4 @@
 const supportEmail = "support@radianthealthapp.com";
-const currentPage = window.location.pathname.split("/").pop() || "index.html";
-const navCtaHref = currentPage === "index.html" ? "#final-cta" : "index.html#final-cta";
 const supportFormEndpoint = `https://formsubmit.co/ajax/${supportEmail}`;
 
 const assetPaths = {
@@ -24,22 +22,6 @@ const assetPaths = {
   community: "./assets/community.png",
   testerCharacter: "./assets/talkingSun.png",
 };
-
-const navItems = [
-  { label: "Product", href: "#" },
-  { label: "Science", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Feedback board", href: "feedback-board.html" },
-  { label: "Become a Tester", href: "become-a-tester.html" },
-];
-
-function getNavLinkAttributes(item) {
-  const isCurrentPage = item.href !== "#" && item.href === currentPage;
-
-  return isCurrentPage
-    ? ' class="site-nav__link site-nav__link--active" aria-current="page"'
-    : ' class="site-nav__link"';
-}
 
 const heroWidgets = [
   { title: "Water Intake", assetKey: "waterWidget", tone: "blue", className: "hero-widget-card--water", alt: "Water intake widget" },
@@ -149,6 +131,7 @@ const coachChecklist = [
 ];
 
 const testerBenefits = [
+  "Free premium for life",
   "Early feature access",
   "Direct product feedback",
   "Help improve Radiant",
@@ -156,123 +139,14 @@ const testerBenefits = [
 
 const footerColumns = [
   {
-    title: "Product",
+    title: "Pages",
     links: [
-      { label: "Features", href: "#features" },
-      { label: "Pricing", href: "#final-cta" },
-      { label: "What’s New", href: "#tester-cta" },
-      { label: "Roadmap", href: "#coaches" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { label: "About Us", href: "#top" },
-      { label: "Careers", href: `mailto:${supportEmail}?subject=Radiant%20careers` },
-      { label: "Contact", href: `mailto:${supportEmail}?subject=Radiant%20contact` },
-      { label: "Press Kit", href: `mailto:${supportEmail}?subject=Radiant%20press%20kit` },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Help Center", href: `mailto:${supportEmail}?subject=Radiant%20help%20center` },
-      { label: "Blog", href: "#insights" },
-      { label: "Guides", href: "#real-life" },
-      { label: "Privacy", href: "privacyPolicy.html" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Terms", href: `mailto:${supportEmail}?subject=Radiant%20terms` },
+      { label: "Home", href: "index.html" },
+      { label: "Apply to be a tester", href: "become-a-tester.html" },
       { label: "Privacy Policy", href: "privacyPolicy.html" },
-      { label: "Security", href: "privacyPolicy.html" },
-      { label: "Cookies", href: `mailto:${supportEmail}?subject=Radiant%20cookies` },
     ],
   },
 ];
-
-const socials = [
-  { icon: "camera", label: "Instagram", href: `mailto:${supportEmail}?subject=Radiant%20Instagram` },
-  { icon: "music-2", label: "TikTok", href: `mailto:${supportEmail}?subject=Radiant%20TikTok` },
-  { icon: "send", label: "X", href: `mailto:${supportEmail}?subject=Radiant%20X` },
-  { icon: "play", label: "YouTube", href: `mailto:${supportEmail}?subject=Radiant%20YouTube` },
-];
-
-function renderDesktopNav(items) {
-  return items
-    .map((item) => {
-      if (!item.children) {
-        return `<a${getNavLinkAttributes(item)} href="${item.href}">${item.label}</a>`;
-      }
-
-      const childLinks = item.children
-        .map(
-          (child) => `
-            <a class="dropdown-menu__link" href="${child.href}">
-              ${child.label}
-            </a>
-          `,
-        )
-        .join("");
-
-      return `
-        <details class="nav-dropdown">
-          <summary class="site-nav__link">
-            ${item.label}
-            <i data-lucide="chevron-down"></i>
-          </summary>
-          <div class="dropdown-menu">
-            ${childLinks}
-          </div>
-        </details>
-      `;
-    })
-    .join("");
-}
-
-function renderMobileNav(items) {
-  const navList = items
-    .map((item) => {
-      if (!item.children) {
-        const currentPageAttributes =
-          item.href !== "#" && item.href === currentPage ? ' aria-current="page"' : "";
-
-        return `<a class="mobile-nav__link" href="${item.href}"${currentPageAttributes}>${item.label}</a>`;
-      }
-
-      const childLinks = item.children
-        .map(
-          (child) => `
-            <a class="mobile-nav__sublink" href="${child.href}">
-              ${child.label}
-            </a>
-          `,
-        )
-        .join("");
-
-      return `
-        <details class="mobile-nav__group">
-          <summary class="mobile-nav__link">
-            ${item.label}
-            <i data-lucide="chevron-down"></i>
-          </summary>
-          <div class="mobile-nav__subgroup">
-            ${childLinks}
-          </div>
-        </details>
-      `;
-    })
-    .join("");
-
-  return `
-    ${navList}
-    <div class="mobile-nav__actions">
-      <a class="button button--nav-outline" href="${navCtaHref}">Get Started</a>
-    </div>
-  `;
-}
 
 function assetFrame({ key, label, tone, className = "", alt = label }) {
   const src = assetPaths[key];
@@ -413,18 +287,6 @@ function renderFooterColumns(columns) {
     .join("");
 }
 
-function renderSocials(items) {
-  return items
-    .map(
-      (item) => `
-        <a class="social-link" href="${item.href}" aria-label="${item.label}">
-          <i data-lucide="${item.icon}"></i>
-        </a>
-      `,
-    )
-    .join("");
-}
-
 function renderHeroCharacters() {
   return `
     <div class="character-row">
@@ -505,15 +367,12 @@ function mountContent() {
     }
   };
 
-  setHTML("desktop-nav", renderDesktopNav(navItems));
-  setHTML("mobile-nav", renderMobileNav(navItems));
   setHTML("value-grid", renderValueProps(valueProps));
   setHTML("feature-grid", renderFeatures(features));
   setHTML("benefit-list", renderBenefits(benefits));
   setHTML("coach-checklist", renderChecklist(coachChecklist));
   setHTML("tester-benefits", renderTesterBenefits(testerBenefits));
   setHTML("footer-links", renderFooterColumns(footerColumns));
-  setHTML("social-links", renderSocials(socials));
   setHTML("hero-widget-gallery", renderHeroWidgetGallery(heroWidgets));
   setHTML("hero-cast", renderHeroCast());
   setHTML(
@@ -546,16 +405,6 @@ function mountContent() {
       alt: "Tester character placeholder",
     }),
   );
-  setHTML(
-    "final-cta-character",
-    assetFrame({
-      key: "sunCharacter",
-      label: "Sun character asset",
-      tone: "gold",
-      className: "final-asset",
-      alt: "Sun character placeholder",
-    }),
-  );
 }
 
 function initAssetFallbacks() {
@@ -581,96 +430,7 @@ function initAssetFallbacks() {
   });
 }
 
-function initDesktopDropdowns() {
-  const dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
-
-  dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener("toggle", () => {
-      if (!dropdown.open) {
-        return;
-      }
-
-      dropdowns.forEach((other) => {
-        if (other !== dropdown) {
-          other.open = false;
-        }
-      });
-    });
-  });
-
-  document.addEventListener("click", (event) => {
-    dropdowns.forEach((dropdown) => {
-      if (!dropdown.contains(event.target)) {
-        dropdown.open = false;
-      }
-    });
-  });
-}
-
-function initMobileMenu() {
-  const menuButton = document.querySelector(".menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  if (!menuButton || !mobileMenu) {
-    return;
-  }
-
-  function setMenuState(isOpen) {
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    mobileMenu.hidden = !isOpen;
-    document.body.classList.toggle("menu-open", isOpen);
-    menuButton.innerHTML = isOpen
-      ? '<i data-lucide="x"></i>'
-      : '<i data-lucide="menu"></i>';
-    lucide.createIcons();
-  }
-
-  menuButton.addEventListener("click", () => {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-    setMenuState(!isOpen);
-  });
-
-  mobileMenu.addEventListener("click", (event) => {
-    if (event.target.closest("a")) {
-      setMenuState(false);
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      setMenuState(false);
-      document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
-        dropdown.open = false;
-      });
-    }
-  });
-}
-
-function initNewsletterForm() {
-  const form = document.getElementById("newsletter-form");
-  const emailInput = document.getElementById("newsletter-email");
-  const status = document.getElementById("newsletter-status");
-
-  if (!form || !emailInput || !status) {
-    return;
-  }
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!emailInput.checkValidity()) {
-      status.textContent = "Enter a valid email address to continue.";
-      emailInput.focus();
-      return;
-    }
-
-    const email = encodeURIComponent(emailInput.value.trim());
-    status.textContent = "Opening your email app to finish the request.";
-    window.location.href = `mailto:${supportEmail}?subject=Radiant%20newsletter&body=Please%20add%20${email}%20to%20the%20Radiant%20newsletter.`;
-  });
-}
-
-async function submitSupportEmail({ subject, fields, replyTo }) {
+async function submitSupportEmail({ subject, fields, replyTo, files = [] }) {
   const payload = {
     _subject: subject,
     _template: "table",
@@ -680,6 +440,41 @@ async function submitSupportEmail({ subject, fields, replyTo }) {
 
   if (replyTo) {
     payload._replyto = replyTo;
+  }
+
+  const attachedFiles = Array.isArray(files) ? files.filter((file) => file instanceof File) : [];
+
+  if (attachedFiles.length > 0) {
+    const multipartPayload = new FormData();
+
+    Object.entries(payload).forEach(([key, value]) => {
+      multipartPayload.append(key, value);
+    });
+
+    attachedFiles.forEach((file) => {
+      multipartPayload.append("attachment", file, file.name);
+    });
+
+    const response = await fetch(supportFormEndpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: multipartPayload,
+    });
+
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok) {
+      const message =
+        typeof data?.message === "string"
+          ? data.message
+          : "Unable to deliver the submission email right now.";
+
+      throw new Error(message);
+    }
+
+    return data;
   }
 
   const response = await fetch(supportFormEndpoint, {
@@ -708,9 +503,6 @@ async function submitSupportEmail({ subject, fields, replyTo }) {
 function initApp() {
   mountContent();
   initAssetFallbacks();
-  initDesktopDropdowns();
-  initMobileMenu();
-  initNewsletterForm();
   if (window.lucide) {
     lucide.createIcons();
   }

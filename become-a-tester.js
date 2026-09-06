@@ -13,7 +13,11 @@ function initTesterApplication() {
   const healthProfessionalCheckbox = document.getElementById("tester-health-professional");
   const professionalPanel = document.getElementById("tester-professional-panel");
   const professionalTypeField = document.getElementById("tester-professional-type");
+  const organizationNameField = document.getElementById("tester-organization-name");
+  const organizationRoleField = document.getElementById("tester-organization-role");
+  const professionalDocumentationField = document.getElementById("tester-professional-documentation");
   const usesClientAppsInputs = Array.from(form.querySelectorAll('input[name="usesClientApps"]'));
+  const clientAppsFieldWrapper = document.getElementById("tester-client-apps-field");
   const clientAppsField = document.getElementById("tester-client-apps");
   const infoButton = document.getElementById("health-professional-info-button");
   const dialog = document.getElementById("health-professional-dialog");
@@ -42,16 +46,33 @@ function initTesterApplication() {
     const isHealthProfessional = Boolean(healthProfessionalCheckbox?.checked);
     const selectedClientAppsValue = form.querySelector('input[name="usesClientApps"]:checked')?.value;
     const requiresClientAppsDetail = isHealthProfessional && selectedClientAppsValue === "yes";
+    const professionalFields = [
+      professionalTypeField,
+      organizationNameField,
+      organizationRoleField,
+      professionalDocumentationField,
+      clientAppsField,
+      ...usesClientAppsInputs,
+    ].filter(Boolean);
 
-    professionalPanel.hidden = !isHealthProfessional;
+    professionalPanel.classList.toggle("is-locked", !isHealthProfessional);
+    professionalPanel.setAttribute("aria-disabled", String(!isHealthProfessional));
     professionalTypeField.required = isHealthProfessional;
+    professionalDocumentationField.required = isHealthProfessional;
+
+    professionalFields.forEach((field) => {
+      field.disabled = !isHealthProfessional;
+    });
 
     usesClientAppsInputs.forEach((input) => {
       input.required = isHealthProfessional;
     });
 
+    if (clientAppsFieldWrapper) {
+      clientAppsFieldWrapper.hidden = !requiresClientAppsDetail;
+    }
     clientAppsField.required = requiresClientAppsDetail;
-    clientAppsField.disabled = !requiresClientAppsDetail;
+    clientAppsField.disabled = !isHealthProfessional || !requiresClientAppsDetail;
 
     if (!requiresClientAppsDetail) {
       clientAppsField.value = "";
@@ -60,6 +81,10 @@ function initTesterApplication() {
 
     if (!isHealthProfessional) {
       professionalTypeField.value = "";
+      organizationNameField.value = "";
+      organizationRoleField.value = "";
+      professionalDocumentationField.value = "";
+      professionalDocumentationField.setCustomValidity("");
       usesClientAppsInputs.forEach((input) => {
         input.checked = false;
       });
@@ -107,6 +132,7 @@ function initTesterApplication() {
     event.preventDefault();
 
     syncOtherAppsRequirement();
+    syncProfessionalRequirements();
 
     if (!form.reportValidity()) {
       status.textContent = "Complete every required field before submitting.";
@@ -114,6 +140,7 @@ function initTesterApplication() {
     }
 
     const formData = new FormData(form);
+    const professionalDocumentationFiles = Array.from(professionalDocumentationField.files || []);
     const application = {
       id: createTesterApplicationId(),
       submittedAt: new Date().toISOString(),
@@ -130,6 +157,9 @@ function initTesterApplication() {
       platform: String(formData.get("platform") || "").trim(),
       isHealthProfessional: formData.get("isHealthProfessional") === "on",
       professionalType: String(formData.get("professionalType") || "").trim(),
+      organizationName: String(formData.get("organizationName") || "").trim(),
+      organizationRole: String(formData.get("organizationRole") || "").trim(),
+      professionalDocumentation: professionalDocumentationFiles.map((file) => file.name),
       usesClientApps: String(formData.get("usesClientApps") || "").trim(),
       clientApps: String(formData.get("clientApps") || "").trim(),
     };
@@ -157,9 +187,13 @@ function initTesterApplication() {
           platform: application.platform,
           health_professional: application.isHealthProfessional ? "Yes" : "No",
           professional_type: application.professionalType || "N/A",
+          organization_name: application.organizationName || "N/A",
+          organization_role: application.organizationRole || "N/A",
+          professional_documentation: application.professionalDocumentation.join(", ") || "N/A",
           uses_client_apps: application.usesClientApps || "N/A",
           client_apps: application.clientApps || "N/A",
         },
+        files: professionalDocumentationFiles,
       });
 
       form.reset();

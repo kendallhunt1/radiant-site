@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260902-2" />
+  <link rel="stylesheet" href="styles.css?v=20260906-1" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="landing-page">
@@ -33,26 +33,8 @@
         />
       </a>
 
-      <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
-
       <div class="site-header__actions">
-        <a class="button button--nav-outline button--compact" href="#final-cta">Get Started</a>
-      </div>
-
-      <button
-        class="menu-btn"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Open navigation menu"
-      >
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <div class="container mobile-menu__content">
-        <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav"></nav>
+        <a class="button button--nav-outline button--compact" href="become-a-tester.html">Become a Tester</a>
       </div>
     </div>
   </header>
@@ -272,66 +254,62 @@
       </div>
     </section>
 
+    <section class="section support-copy-section" aria-labelledby="support-copy-heading">
+      <div class="container">
+        <div class="support-copy-section__content">
+          <h2 id="support-copy-heading">You don&apos;t have to do it alone anymore.</h2>
+          <p>
+            Do it with your friends, family, gym buddies, trainers, dieticians, and nutritionists.
+            <br />
+            Find your group. Connect with your health professionals. Find your support. Give your support. Be radiant.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="section tester-cta" id="tester-cta" aria-labelledby="tester-heading">
       <div class="container">
         <div class="tester-cta__panel">
           <div class="tester-cta__copy">
             <h2 id="tester-heading">
-              Help shape the future of Radiant
+              Help shape the future of radiant
               <span class="heading-sparkle" aria-hidden="true">
                 <i data-lucide="sparkles"></i>
               </span>
             </h2>
             <p>
-              Become a tester and get early access while helping us refine the experience.
+              Do you actively track your health and are looking for a better health tracking solution at 0 cost?</br></br>Or</br></br>Are you a health professional looking for a solution to integrate ALL of your client day-to-day management into one space?
             </p>
-            <div class="tester-benefits" id="tester-benefits"></div>
+            <div class="tester-benefits" id="tester-benefits">
+              <span class="tester-benefit-pill">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Free premium for life
+              </span>
+              <span class="tester-benefit-pill">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Early feature access
+              </span>
+              <span class="tester-benefit-pill">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Direct product feedback
+              </span>
+              <span class="tester-benefit-pill">
+                <i data-lucide="sparkles" aria-hidden="true"></i>
+                Help improve Radiant
+              </span>
+            </div>
           </div>
 
           <div class="tester-character" id="tester-character"></div>
 
           <div class="tester-cta__actions">
-            <a class="button button--lavender" href="/tester">Apply to be a tester</a>
+            <a class="button button--lavender" href="become-a-tester.html">Apply to be a tester</a>
             <a class="text-link" href="#features">Learn what to expect</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section final-cta" id="final-cta" aria-labelledby="final-cta-heading">
-      <div class="container">
-        <div class="final-cta__panel">
-          <div class="final-cta__character" id="final-cta-character"></div>
-
-          <div class="final-cta__copy">
-            <h2 id="final-cta-heading">
-              Ready to become your best you?
-              <span class="heading-sparkle" aria-hidden="true">
-                <i data-lucide="sparkles"></i>
-              </span>
-            </h2>
-            <p>Join thousands building healthier habits with Radiant.</p>
-          </div>
-
-          <div class="final-cta__actions">
-            <div class="final-cta__button-row">
-              <a class="button button--primary" href="#top">Get Started Free</a>
-              <a
-                class="button button--ghost"
-                href="mailto:support@radianthealthapp.com?subject=Radiant%20app%20download"
-              >
-                Download the App
-              </a>
-            </div>
-            <p>Free core tracking. No credit card required.</p>
-          </div>
-
-          <span class="leaf-accent" aria-hidden="true">
-            <i data-lucide="leaf"></i>
-          </span>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer site-footer" id="footer">
@@ -351,32 +329,9 @@
       </div>
 
       <div class="site-footer__links" id="footer-links"></div>
-
-      <div class="site-footer__newsletter">
-        <h3>Stay in the loop</h3>
-        <p>Tips, inspiration, and life-changing wellness, delivered to you.</p>
-
-        <form class="newsletter-form" id="newsletter-form">
-          <label class="sr-only" for="newsletter-email">Email address</label>
-          <input
-            id="newsletter-email"
-            name="email"
-            type="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-            required
-          />
-          <button type="submit" aria-label="Send newsletter request">
-            <i data-lucide="arrow-right"></i>
-          </button>
-        </form>
-        <p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
-
-        <div class="social-links" id="social-links"></div>
-      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=20260902-6"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260906-3" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="tester-page">
@@ -33,26 +33,8 @@
         />
       </a>
 
-      <nav class="site-nav desktop-nav" aria-label="Primary" id="desktop-nav"></nav>
-
       <div class="site-header__actions">
-        <a class="button button--nav-outline button--compact" href="index.html#final-cta">Get Started</a>
-      </div>
-
-      <button
-        class="menu-btn"
-        type="button"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        aria-label="Open navigation menu"
-      >
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <div class="container mobile-menu__content">
-        <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav"></nav>
+        <a class="button button--nav-outline button--compact" href="become-a-tester.html">Become a Tester</a>
       </div>
     </div>
   </header>
@@ -67,7 +49,7 @@
           </p>
           <h1>Want to become a tester? Apply here.</h1>
           <p>
-            We&apos;re building an early tester group to help shape how Radiant feels, performs, and grows before wider rollout.
+            We&apos;re building an early tester group to help shape how radiant feels, performs, and grows before wider rollout.
           </p>
         </div>
 
@@ -78,15 +60,16 @@
               <li>Free premium for life.</li>
               <li>Get the newest versions first.</li>
               <li>Unlimited groups in the community.</li>
-              <li>Free AI usage during testing.</li>
+              <li>Free AI usage for life.</li>
               <li>Priority access to new experiments and unreleased features.</li>
+              <li>Collaborate with other testers and radiant to shape how it's built.</li>
             </ul>
           </article>
 
           <article class="tester-panel">
             <h2>Who We Want</h2>
             <ul>
-              <li>People who actively log their health today.</li>
+              <li>People who actively log their health already (nearly everyday).</li>
               <li>People who care about their health but don&apos;t currently log it.</li>
               <li>People who have used health logging apps in the past or present.</li>
               <li>People willing to join and contribute to communities.</li>
@@ -97,12 +80,12 @@
           <article class="tester-panel">
             <h2>What&apos;s Expected</h2>
             <ul>
-              <li>Use Radiant consistently enough to form real opinions.</li>
+              <li>Use radiant consistently enough to form real opinions.</li>
               <li>Share bugs, friction points, and ideas while testing.</li>
               <li>Be responsive when we ask for specific product feedback.</li>
-              <li>Try new flows and versions as they become available.</li>
+              <li>Download and use new versions as they become available.</li>
               <li>Participate thoughtfully if you choose to join community testing spaces.</li>
-              <li>Health professionals are expected to use the pro tools, including groups, plans, client logs, health metrics, and the Radiant CRM, and provide feedback on them.</li>
+              <li>Health professionals are expected to use the pro tools, including groups, plans, client logs, health metrics, and the radiant CRM, and provide feedback on them.</li>
             </ul>
           </article>
         </div>
@@ -128,21 +111,24 @@
                 </div>
               </div>
 
-              <section class="tester-professional-panel tester-field--full" id="tester-professional-panel" hidden aria-label="Health professional questions">
+              <section class="tester-professional-panel tester-field--full is-locked" id="tester-professional-panel" aria-label="Health professional questions" aria-disabled="true">
+                <div class="tester-professional-panel__lock" aria-hidden="true">
+                  <i data-lucide="lock"></i>
+                </div>
                 <div class="tester-professional-panel__copy">
                   <h3>Health professional tester access</h3>
                   <p>
-                    If you join as a health professional, you&apos;ll be given access to create groups, manage groups, share meal plans, share workouts, review day-to-day client logs and health metrics, and use the online Radiant CRM for health professionals.
+                    If you join as a health professional, you&apos;ll be given full access to the radiant CRM to manage every aspect of your clients. Day-to-day monitoring, scheduling, plan building, and more.
                   </p>
                   <p>
-                    By applying as a health professional, you&apos;re agreeing to actively test these features and provide direct feedback on how they work in day-to-day practice.
+                    By applying as a health professional, you&apos;re agreeing to actively test these features and provide direct feedback on how they work in day-to-day practice so we can improve the product.
                   </p>
                 </div>
 
                 <div class="tester-form-grid tester-form-grid--nested">
                   <div class="tester-field">
                     <label for="tester-professional-type">What type of health professional are you?</label>
-                    <select class="tester-select" id="tester-professional-type" name="professionalType">
+                    <select class="tester-select" id="tester-professional-type" name="professionalType" disabled>
                       <option value="">Select one</option>
                       <option value="dietitian">Dietitian / nutrition professional</option>
                       <option value="coach">Health or wellness coach</option>
@@ -153,27 +139,66 @@
                     </select>
                   </div>
 
+                  <div class="tester-field">
+                    <label for="tester-organization-name">Organization name</label>
+                    <input
+                      class="tester-input"
+                      id="tester-organization-name"
+                      name="organizationName"
+                      type="text"
+                      placeholder="Optional"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="tester-field">
+                    <label for="tester-organization-role">Role within organization</label>
+                    <input
+                      class="tester-input"
+                      id="tester-organization-role"
+                      name="organizationRole"
+                      type="text"
+                      placeholder="Optional"
+                      disabled
+                    />
+                  </div>
+
+                  <div class="tester-field tester-field--full">
+                    <label for="tester-professional-documentation">Supporting documentation (licenses, degrees, certifications, etc.)</label>
+                    <input
+                      class="tester-input tester-file-input"
+                      id="tester-professional-documentation"
+                      name="professionalDocumentation"
+                      type="file"
+                      accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+                      multiple
+                      disabled
+                    />
+                    <p class="tester-field__helper">Attach a license, degree, certification, employment verification, or other relevant documentation.</p>
+                  </div>
+
                   <fieldset class="tester-field tester-choice-group">
                     <legend>Do you currently use any apps to manage clients or your schedule day-to-day?</legend>
                     <div class="tester-choice-grid">
                       <label class="tester-choice">
-                        <input type="radio" name="usesClientApps" value="yes" />
+                        <input type="radio" name="usesClientApps" value="yes" disabled />
                         <span>Yes</span>
                       </label>
                       <label class="tester-choice">
-                        <input type="radio" name="usesClientApps" value="no" />
+                        <input type="radio" name="usesClientApps" value="no" disabled />
                         <span>No</span>
                       </label>
                     </div>
                   </fieldset>
 
-                  <div class="tester-field tester-field--full" id="tester-client-apps-field">
+                  <div class="tester-field tester-field--full" id="tester-client-apps-field" hidden>
                     <label for="tester-client-apps">If yes, what apps do you use?</label>
                     <textarea
                       class="tester-textarea"
                       id="tester-client-apps"
                       name="clientApps"
                       placeholder="Examples: Practice Better, Trainerize, My PT Hub, Google Calendar, SimplePractice..."
+                      disabled
                     ></textarea>
                     <p class="tester-field__helper">This becomes required if you answer yes above.</p>
                   </div>
@@ -322,7 +347,7 @@
     </div>
   </dialog>
 
-  <script src="script.js"></script>
-  <script src="become-a-tester.js"></script>
+  <script src="script.js?v=20260906-1"></script>
+  <script src="become-a-tester.js?v=20260906-2"></script>
 </body>
 </html>
