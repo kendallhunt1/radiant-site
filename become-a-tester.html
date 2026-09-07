@@ -96,7 +96,14 @@
             Fill out every field below so we can determine your eligibility for testing.
           </p>
 
-          <form class="tester-form" id="tester-application-form" novalidate>
+          <form
+            class="tester-form"
+            id="tester-application-form"
+            action="https://formsubmit.co/support@radianthealthapp.com"
+            method="POST"
+            enctype="multipart/form-data"
+            novalidate
+          >
             <div class="tester-form-grid">
               <div class="tester-field">
                 <label for="tester-first-name">First name</label>
@@ -312,7 +319,7 @@
                     <input
                       class="tester-input tester-file-input"
                       id="tester-professional-documentation"
-                      name="professionalDocumentation"
+                      name="attachment"
                       type="file"
                       accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
                       multiple
@@ -406,6 +413,6 @@
   </dialog>
 
   <script src="script.js?v=20260906-1"></script>
-  <script src="become-a-tester.js?v=20260906-6"></script>
+  <script src="become-a-tester.js?v=20260906-7"></script>
 </body>
 </html>

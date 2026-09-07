@@ -1,4 +1,5 @@
 const TESTER_APPLICATIONS_STORAGE_KEY = "radiant-tester-applications-v1";
+const TESTER_APPLICATION_ATTACHMENT_ENDPOINT = "https://formsubmit.co/support@radianthealthapp.com";
 
 function initTesterApplication() {
   const form = document.getElementById("tester-application-form");
@@ -24,6 +25,7 @@ function initTesterApplication() {
   const infoButton = document.getElementById("health-professional-info-button");
   const dialog = document.getElementById("health-professional-dialog");
   const dialogCloseButton = document.getElementById("health-professional-dialog-close");
+  const nativeEmailFields = [];
   let hasAttemptedSubmit = false;
 
   function setStatus(message, type = "") {
@@ -78,6 +80,63 @@ function initTesterApplication() {
     if (hasAttemptedSubmit) {
       syncInvalidHighlights();
     }
+  }
+
+  function clearNativeEmailFields() {
+    while (nativeEmailFields.length > 0) {
+      nativeEmailFields.pop().remove();
+    }
+  }
+
+  function appendNativeEmailField(name, value) {
+    const input = document.createElement("input");
+
+    input.type = "hidden";
+    input.name = name;
+    input.value = value;
+    input.dataset.nativeEmailField = "true";
+    form.prepend(input);
+    nativeEmailFields.push(input);
+  }
+
+  function getAttachmentReturnUrl() {
+    const returnUrl = new URL(window.location.href);
+
+    returnUrl.searchParams.set("testerApplication", "submitted");
+    return returnUrl.toString();
+  }
+
+  function submitWithAttachments(application) {
+    clearNativeEmailFields();
+    appendNativeEmailField("_subject", "Radiant tester application");
+    appendNativeEmailField("_template", "table");
+    appendNativeEmailField("_replyto", application.email);
+    appendNativeEmailField("_url", window.location.href);
+    appendNativeEmailField("_next", getAttachmentReturnUrl());
+    appendNativeEmailField("form_name", "Radiant Tester Application");
+    appendNativeEmailField("application_id", application.id);
+    appendNativeEmailField("submitted_at", formatTesterDateTime(application.submittedAt));
+    appendNativeEmailField(
+      "professional_documentation_file_names",
+      application.professionalDocumentation.join(", "),
+    );
+
+    form.action = TESTER_APPLICATION_ATTACHMENT_ENDPOINT;
+    form.method = "POST";
+    form.enctype = "multipart/form-data";
+    HTMLFormElement.prototype.submit.call(form);
+  }
+
+  function showReturnedAttachmentSubmissionStatus() {
+    const currentUrl = new URL(window.location.href);
+
+    if (currentUrl.searchParams.get("testerApplication") !== "submitted") {
+      return;
+    }
+
+    currentUrl.searchParams.delete("testerApplication");
+    window.history.replaceState(null, "", `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
+    setStatus("Application submitted! We'll get back with you shortly.", "success");
   }
 
   function syncOtherAppsRequirement() {
@@ -189,6 +248,8 @@ function initTesterApplication() {
     });
   }
 
+  showReturnedAttachmentSubmissionStatus();
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -237,6 +298,13 @@ function initTesterApplication() {
     };
 
     persistTesterApplication(application);
+
+    if (professionalDocumentationFiles.length > 0) {
+      setSubmitLoading(true);
+      setStatus("Submitting your application...", "");
+      submitWithAttachments(application);
+      return;
+    }
 
     try {
       await submitSupportEmail({
