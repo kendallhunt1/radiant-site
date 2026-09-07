@@ -22,6 +22,47 @@ function initTesterApplication() {
   const infoButton = document.getElementById("health-professional-info-button");
   const dialog = document.getElementById("health-professional-dialog");
   const dialogCloseButton = document.getElementById("health-professional-dialog-close");
+  let hasAttemptedSubmit = false;
+
+  function setStatus(message, type = "") {
+    status.textContent = message;
+    status.classList.toggle("is-error", type === "error");
+    status.classList.toggle("is-success", type === "success");
+  }
+
+  function getValidatedControls() {
+    return Array.from(form.querySelectorAll("input, select, textarea")).filter(
+      (control) => !control.disabled,
+    );
+  }
+
+  function syncInvalidHighlights({ focusFirst = false } = {}) {
+    clearInvalidHighlights();
+
+    const invalidControls = getValidatedControls().filter((control) => !control.validity.valid);
+
+    invalidControls.forEach((control) => {
+      control.closest(".tester-field")?.classList.add("is-invalid");
+    });
+
+    if (focusFirst && invalidControls[0]) {
+      invalidControls[0].focus({ preventScroll: false });
+    }
+
+    return invalidControls.length === 0;
+  }
+
+  function clearInvalidHighlights() {
+    form.querySelectorAll(".tester-field.is-invalid").forEach((field) => {
+      field.classList.remove("is-invalid");
+    });
+  }
+
+  function refreshInvalidHighlightsAfterChange() {
+    if (hasAttemptedSubmit) {
+      syncInvalidHighlights();
+    }
+  }
 
   function syncOtherAppsRequirement() {
     const selectedValue = form.querySelector('input[name="usedOtherApps"]:checked')?.value;
@@ -34,6 +75,8 @@ function initTesterApplication() {
       otherAppsField.value = "";
       otherAppsField.setCustomValidity("");
     }
+
+    refreshInvalidHighlightsAfterChange();
   }
 
   usedOtherAppsInputs.forEach((input) => {
@@ -89,6 +132,8 @@ function initTesterApplication() {
         input.checked = false;
       });
     }
+
+    refreshInvalidHighlightsAfterChange();
   }
 
   if (healthProfessionalCheckbox) {
@@ -134,8 +179,11 @@ function initTesterApplication() {
     syncOtherAppsRequirement();
     syncProfessionalRequirements();
 
+    hasAttemptedSubmit = true;
+    syncInvalidHighlights({ focusFirst: true });
+
     if (!form.reportValidity()) {
-      status.textContent = "Complete every required field before submitting.";
+      setStatus("Complete every required field before submitting.", "error");
       return;
     }
 
@@ -196,14 +244,19 @@ function initTesterApplication() {
         files: professionalDocumentationFiles,
       });
 
+      hasAttemptedSubmit = false;
       form.reset();
       syncOtherAppsRequirement();
       syncProfessionalRequirements();
-      status.textContent = "Application submitted and emailed to support.";
+      clearInvalidHighlights();
+      setStatus("Application submitted! We'll get back with you shortly.", "success");
     } catch (error) {
-      status.textContent = "Your application was saved locally, but the support email could not be sent yet.";
+      setStatus("Your application was saved locally but could not be submitted. Please try again.", "error");
     }
   });
+
+  form.addEventListener("input", refreshInvalidHighlightsAfterChange);
+  form.addEventListener("change", refreshInvalidHighlightsAfterChange);
 }
 
 function persistTesterApplication(application) {

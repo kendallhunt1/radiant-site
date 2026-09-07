@@ -3044,6 +3044,12 @@ body.tester-page {
   font-weight: 800;
 }
 
+.tester-field:has(:is(input, select, textarea)[required]) > label::after,
+.tester-choice-group:has(input[required]) > legend::after {
+  content: " *";
+  color: #d34848;
+}
+
 .tester-label-row {
   display: flex;
   align-items: center;
@@ -3059,6 +3065,25 @@ body.tester-page {
   background: rgba(255, 255, 255, 0.96);
   color: var(--text-primary);
   font: inherit;
+}
+
+.tester-field.is-invalid > label,
+.tester-choice-group.is-invalid > legend {
+  color: #c73737;
+}
+
+.tester-field.is-invalid .tester-input,
+.tester-field.is-invalid .tester-select,
+.tester-field.is-invalid .tester-textarea {
+  border-color: rgba(199, 55, 55, 0.82);
+  background: rgba(255, 248, 248, 0.98);
+  box-shadow: 0 0 0 4px rgba(199, 55, 55, 0.11);
+}
+
+.tester-choice-group.is-invalid .tester-choice span {
+  border-color: rgba(199, 55, 55, 0.72);
+  background: rgba(255, 248, 248, 0.98);
+  box-shadow: 0 0 0 4px rgba(199, 55, 55, 0.1);
 }
 
 .tester-input,
@@ -3272,6 +3297,14 @@ body.tester-page {
 
 .tester-form-status {
   min-height: 1.4em;
+}
+
+.tester-form-status.is-error {
+  color: #c73737;
+}
+
+.tester-form-status.is-success {
+  color: #51825b;
 }
 
 .tester-dialog {
