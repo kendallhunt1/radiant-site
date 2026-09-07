@@ -8,6 +8,8 @@ function initTesterApplication() {
   }
 
   const status = document.getElementById("tester-form-status");
+  const submitButton = document.getElementById("tester-submit-button");
+  const submitButtonText = submitButton?.querySelector(".tester-submit-button__text");
   const usedOtherAppsInputs = Array.from(form.querySelectorAll('input[name="usedOtherApps"]'));
   const otherAppsField = document.getElementById("tester-other-apps");
   const healthProfessionalCheckbox = document.getElementById("tester-health-professional");
@@ -28,6 +30,20 @@ function initTesterApplication() {
     status.textContent = message;
     status.classList.toggle("is-error", type === "error");
     status.classList.toggle("is-success", type === "success");
+  }
+
+  function setSubmitLoading(isLoading) {
+    if (!submitButton) {
+      return;
+    }
+
+    submitButton.disabled = isLoading;
+    submitButton.classList.toggle("is-loading", isLoading);
+    submitButton.setAttribute("aria-busy", String(isLoading));
+
+    if (submitButtonText) {
+      submitButtonText.textContent = isLoading ? "Submitting..." : "Apply to be a tester";
+    }
   }
 
   function getValidatedControls() {
@@ -187,6 +203,9 @@ function initTesterApplication() {
       return;
     }
 
+    setSubmitLoading(true);
+    setStatus("Submitting your application...", "");
+
     const formData = new FormData(form);
     const professionalDocumentationFiles = Array.from(professionalDocumentationField.files || []);
     const application = {
@@ -260,8 +279,10 @@ function initTesterApplication() {
       syncProfessionalRequirements();
       clearInvalidHighlights();
       setStatus("Application submitted! We'll get back with you shortly.", "success");
+      setSubmitLoading(false);
     } catch (error) {
       setStatus("Your application was saved locally but could not be submitted. Please try again.", "error");
+      setSubmitLoading(false);
     }
   });
 

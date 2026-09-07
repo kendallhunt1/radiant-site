@@ -3295,6 +3295,38 @@ body.tester-page {
   flex-wrap: wrap;
 }
 
+.tester-submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.tester-submit-button:disabled {
+  cursor: progress;
+  opacity: 0.72;
+}
+
+.tester-submit-button__loading {
+  display: none;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: tester-submit-spin 0.72s linear infinite;
+}
+
+.tester-submit-button.is-loading .tester-submit-button__loading {
+  display: inline-block;
+}
+
+@keyframes tester-submit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .tester-form-status {
   min-height: 1.4em;
 }

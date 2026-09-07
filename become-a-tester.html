@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260906-4" />
+  <link rel="stylesheet" href="styles.css?v=20260906-5" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="tester-page">
@@ -368,7 +368,10 @@
             </div>
 
             <div class="tester-form-actions">
-              <button class="button button--nav-outline" type="submit">Apply to be a tester</button>
+              <button class="button button--nav-outline tester-submit-button" id="tester-submit-button" type="submit">
+                <span class="tester-submit-button__text">Apply to be a tester</span>
+                <span class="tester-submit-button__loading" aria-hidden="true"></span>
+              </button>
               <p class="tester-form-status" id="tester-form-status" aria-live="polite"></p>
             </div>
           </form>
@@ -403,6 +406,6 @@
   </dialog>
 
   <script src="script.js?v=20260906-1"></script>
-  <script src="become-a-tester.js?v=20260906-5"></script>
+  <script src="become-a-tester.js?v=20260906-6"></script>
 </body>
 </html>
