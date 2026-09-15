@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="radiant helps you track nutrition, movement, sleep, and recovery with AI insights, privacy-first data practices, and supportive habit-building tools."
+    content="radiant helps individuals track healthier habits and gives professionals a calmer CRM for supporting client progress."
   />
-  <title>radiant | Healthy habits. Real progress.</title>
+  <title>radiant | Healthier people. Brighter possibilities.</title>
   <link rel="icon" href="/liftingSunLogoDepthLight.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260906-1" />
+  <link rel="stylesheet" href="styles.css?v=20260915-1" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="landing-page">
@@ -40,7 +40,125 @@
   </header>
 
   <main id="main-content">
-    <section class="hero-section section">
+    <section class="hero-section section product-gateway-section" aria-labelledby="product-gateway-heading">
+      <div class="container product-gateway">
+        <div class="product-gateway__intro">
+          <h1 id="product-gateway-heading">
+            Healthier people.
+            <span>Brighter possibilities.</span>
+          </h1>
+          <p>One platform for better health, for you and the people you support.</p>
+        </div>
+
+        <div class="product-gateway__cards">
+          <article class="product-card product-card--mobile" id="mobile-app">
+            <div class="product-card__copy">
+              <p class="product-card__eyebrow">Mobile App</p>
+              <h2>
+                Small steps.
+                <span>A brighter you.</span>
+              </h2>
+              <p>Track, understand, and improve your health, all in one place.</p>
+              <ul class="product-card__features">
+                <li>
+                  <i data-lucide="utensils" aria-hidden="true"></i>
+                  <span>Log nutrition, activity, sleep &amp; more</span>
+                </li>
+                <li>
+                  <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+                  <span>Get personalized insights</span>
+                </li>
+                <li>
+                  <i data-lucide="zap" aria-hidden="true"></i>
+                  <span>Build healthy habits that stick</span>
+                </li>
+              </ul>
+              <a class="button button--primary product-card__button" href="?experience=app#app-site">
+                Learn about the app
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="product-card__visual product-card__visual--phones" aria-label="Radiant mobile app screenshots">
+              <img
+                class="phone-screenshot"
+                src="./assets/mobileScreenshots.png"
+                alt="Radiant mobile app screenshots"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="product-card product-card--crm" id="crm">
+            <div class="product-card__copy">
+              <p class="product-card__eyebrow">CRM for Professionals</p>
+              <h2>
+                More progress
+                <span>for more people.</span>
+              </h2>
+              <p>Manage clients, track outcomes, and save time in one calm workspace.</p>
+              <ul class="product-card__features">
+                <li>
+                  <i data-lucide="users" aria-hidden="true"></i>
+                  <span>See all client data in one view</span>
+                </li>
+                <li>
+                  <i data-lucide="line-chart" aria-hidden="true"></i>
+                  <span>Track adherence &amp; spot trends</span>
+                </li>
+                <li>
+                  <i data-lucide="clipboard-list" aria-hidden="true"></i>
+                  <span>Create and manage plans</span>
+                </li>
+              </ul>
+              <a class="button button--primary product-card__button" href="?experience=crm#crm-placeholder">
+                Learn about the CRM
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="product-card__visual product-card__visual--laptop" aria-label="Radiant CRM preview">
+              <img
+                class="laptop-screenshot"
+                src="./assets/macbookScreenshot.jpg"
+                alt="Radiant CRM displayed on a MacBook"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section crm-placeholder-section" id="crm-placeholder" aria-labelledby="crm-placeholder-heading">
+      <div class="container crm-placeholder">
+        <div class="crm-placeholder__copy">
+          <p class="product-card__eyebrow">CRM for Professionals</p>
+          <h1 id="crm-placeholder-heading">
+            Client progress,
+            <span>all in one place.</span>
+          </h1>
+          <p>
+            A focused CRM experience for coaches, clinicians, and teams is coming next.
+          </p>
+          <a class="button button--primary product-card__button" href="become-a-tester.html">
+            Become a tester
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="product-card__visual product-card__visual--laptop" aria-label="Radiant CRM preview">
+          <img
+            class="laptop-screenshot"
+            src="./assets/macbookScreenshot.jpg"
+            alt="Radiant CRM displayed on a MacBook"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-section section app-site-section" id="app-site">
       <div class="container orbital-hero">
         <h1 class="sr-only">Health can be hard. Now it&apos;s not.</h1>
 
@@ -331,6 +449,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260902-6"></script>
+  <script src="script.js?v=20260915-1"></script>
 </body>
 </html>

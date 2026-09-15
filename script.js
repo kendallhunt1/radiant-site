@@ -407,6 +407,14 @@ function mountContent() {
   );
 }
 
+function initExperienceRoute() {
+  const params = new URLSearchParams(window.location.search);
+  const experience = params.get("experience");
+
+  document.body.classList.toggle("show-app-site", experience === "app");
+  document.body.classList.toggle("show-crm-site", experience === "crm");
+}
+
 function initAssetFallbacks() {
   document.querySelectorAll(".asset-fallback").forEach((frame) => {
     const img = frame.querySelector("img");
@@ -501,6 +509,7 @@ async function submitSupportEmail({ subject, fields, replyTo, files = [] }) {
 }
 
 function initApp() {
+  initExperienceRoute();
   mountContent();
   initAssetFallbacks();
   if (window.lucide) {
