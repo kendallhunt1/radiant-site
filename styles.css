@@ -362,6 +362,7 @@ ol {
   border-color: var(--primary-blue);
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 10px 22px rgba(153, 197, 242, 0.1);
+  text-align: center;
 }
 
 .button--success {
@@ -510,6 +511,7 @@ body.show-crm-site .site-header .button--nav-outline {
   color: #071018;
   border-color: var(--primary-blue);
   background: var(--primary-blue);
+  text-align: center;
 }
 
 .product-gateway {
@@ -4353,7 +4355,8 @@ body.tester-page {
 
   .product-card__visual--laptop {
     min-height: 220px;
-    padding: 0 0 1.45rem 1.2rem;
+    justify-items: center;
+    padding: 0 1.1rem 1.25rem;
   }
 
   .laptop-screenshot {
