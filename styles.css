@@ -739,6 +739,7 @@ body.show-crm-site .site-header .button--nav-outline {
   height: clamp(240px, 34vw, 460px);
   overflow: hidden;
   padding: 0;
+  touch-action: pan-y;
 }
 
 .crm-showcase__track {

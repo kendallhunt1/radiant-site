@@ -427,7 +427,11 @@ function initCrmShowcase() {
   const slides = Array.from(track.querySelectorAll(".crm-slide"));
   const previousButton = showcase.querySelector(".crm-showcase__arrow--prev");
   const nextButton = showcase.querySelector(".crm-showcase__arrow--next");
+  const viewport = showcase.querySelector(".crm-showcase__viewport");
   let activeIndex = 0;
+  let swipeStartX = 0;
+  let swipeStartY = 0;
+  let isSwiping = false;
 
   const dots = slides.map((_, index) => {
     const dot = document.createElement("button");
@@ -460,6 +464,38 @@ function initCrmShowcase() {
 
   previousButton?.addEventListener("click", () => setActiveSlide(activeIndex - 1));
   nextButton?.addEventListener("click", () => setActiveSlide(activeIndex + 1));
+
+  viewport?.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    swipeStartX = event.clientX;
+    swipeStartY = event.clientY;
+    isSwiping = true;
+    viewport.setPointerCapture?.(event.pointerId);
+  });
+
+  viewport?.addEventListener("pointerup", (event) => {
+    if (!isSwiping) {
+      return;
+    }
+
+    const deltaX = event.clientX - swipeStartX;
+    const deltaY = event.clientY - swipeStartY;
+    const isHorizontalSwipe = Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25;
+
+    if (isHorizontalSwipe) {
+      setActiveSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+    }
+
+    isSwiping = false;
+    viewport.releasePointerCapture?.(event.pointerId);
+  });
+
+  viewport?.addEventListener("pointercancel", () => {
+    isSwiping = false;
+  });
 
   showcase.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
