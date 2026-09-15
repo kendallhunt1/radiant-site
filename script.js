@@ -415,6 +415,65 @@ function initExperienceRoute() {
   document.body.classList.toggle("show-crm-site", experience === "crm");
 }
 
+function initCrmShowcase() {
+  const track = document.getElementById("crm-showcase-track");
+  const dotsContainer = document.getElementById("crm-showcase-dots");
+  const showcase = document.querySelector(".crm-showcase");
+
+  if (!track || !dotsContainer || !showcase) {
+    return;
+  }
+
+  const slides = Array.from(track.querySelectorAll(".crm-slide"));
+  const previousButton = showcase.querySelector(".crm-showcase__arrow--prev");
+  const nextButton = showcase.querySelector(".crm-showcase__arrow--next");
+  let activeIndex = 0;
+
+  const dots = slides.map((_, index) => {
+    const dot = document.createElement("button");
+    dot.className = "crm-showcase__dot";
+    dot.type = "button";
+    dot.setAttribute("aria-label", `Show CRM preview ${index + 1}`);
+    dot.addEventListener("click", () => setActiveSlide(index));
+    dotsContainer.appendChild(dot);
+    return dot;
+  });
+
+  const setActiveSlide = (index) => {
+    activeIndex = (index + slides.length) % slides.length;
+    const previousIndex = (activeIndex - 1 + slides.length) % slides.length;
+    const nextIndex = (activeIndex + 1) % slides.length;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-prev", slideIndex === previousIndex);
+      slide.classList.toggle("is-active", slideIndex === activeIndex);
+      slide.classList.toggle("is-next", slideIndex === nextIndex);
+      slide.setAttribute("aria-hidden", slideIndex === activeIndex ? "false" : "true");
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      const isActiveDot = dotIndex === activeIndex;
+      dot.classList.toggle("is-active", isActiveDot);
+      dot.setAttribute("aria-current", isActiveDot ? "true" : "false");
+    });
+  };
+
+  previousButton?.addEventListener("click", () => setActiveSlide(activeIndex - 1));
+  nextButton?.addEventListener("click", () => setActiveSlide(activeIndex + 1));
+
+  showcase.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      setActiveSlide(activeIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      setActiveSlide(activeIndex + 1);
+    }
+  });
+
+  setActiveSlide(0);
+}
+
 function initAssetFallbacks() {
   document.querySelectorAll(".asset-fallback").forEach((frame) => {
     const img = frame.querySelector("img");
@@ -511,6 +570,7 @@ async function submitSupportEmail({ subject, fields, replyTo, files = [] }) {
 function initApp() {
   initExperienceRoute();
   mountContent();
+  initCrmShowcase();
   initAssetFallbacks();
   if (window.lucide) {
     lucide.createIcons();

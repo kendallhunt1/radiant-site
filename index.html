@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260915-1" />
+  <link rel="stylesheet" href="styles.css?v=20260915-12" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="landing-page">
@@ -73,10 +73,6 @@
                   <span>Build healthy habits that stick</span>
                 </li>
               </ul>
-              <a class="button button--primary product-card__button" href="?experience=app#app-site">
-                Learn about the app
-                <i data-lucide="arrow-right" aria-hidden="true"></i>
-              </a>
             </div>
             <div class="product-card__visual product-card__visual--phones" aria-label="Radiant mobile app screenshots">
               <img
@@ -87,6 +83,10 @@
                 decoding="async"
               />
             </div>
+            <a class="button button--primary product-card__button" href="?experience=app#app-site">
+              Learn about the app
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
           </article>
 
           <article class="product-card product-card--crm" id="crm">
@@ -111,49 +111,93 @@
                   <span>Create and manage plans</span>
                 </li>
               </ul>
-              <a class="button button--primary product-card__button" href="?experience=crm#crm-placeholder">
-                Learn about the CRM
-                <i data-lucide="arrow-right" aria-hidden="true"></i>
-              </a>
             </div>
             <div class="product-card__visual product-card__visual--laptop" aria-label="Radiant CRM preview">
               <img
                 class="laptop-screenshot"
-                src="./assets/macbookScreenshot.jpg"
+                src="./assets/macbookScreenshot.png"
                 alt="Radiant CRM displayed on a MacBook"
                 loading="eager"
                 decoding="async"
               />
             </div>
+            <a class="button button--primary product-card__button" href="?experience=crm#crm-placeholder">
+              Learn about the CRM
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
           </article>
         </div>
       </div>
     </section>
 
     <section class="section crm-placeholder-section" id="crm-placeholder" aria-labelledby="crm-placeholder-heading">
-      <div class="container crm-placeholder">
-        <div class="crm-placeholder__copy">
-          <p class="product-card__eyebrow">CRM for Professionals</p>
+      <div class="container crm-landing">
+        <div class="crm-showcase" aria-label="CRM preview slideshow" tabindex="0">
+          <button class="crm-showcase__arrow crm-showcase__arrow--prev" type="button" aria-label="Show previous CRM preview">
+            <i data-lucide="chevron-left" aria-hidden="true"></i>
+          </button>
+
+          <div class="crm-showcase__viewport">
+            <div class="crm-showcase__track" id="crm-showcase-track">
+              <article class="crm-slide is-active" aria-label="CRM preview 1 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--clients">
+                  <span class="crm-slide__brand">radiant</span>
+                  <div class="crm-slide__sidebar"></div>
+                  <div class="crm-slide__main">
+                    <span></span><span></span><span></span><span></span>
+                  </div>
+                  <div class="crm-slide__stats"></div>
+                </div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 2 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--plans"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 3 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--metrics"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 4 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--messages"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 5 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--payments"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 6 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--calendar"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 7 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--nutrition"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 8 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--activity"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 9 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--sleep"></div>
+              </article>
+              <article class="crm-slide" aria-label="CRM preview 10 of 10">
+                <div class="crm-slide__placeholder crm-slide__placeholder--reports"></div>
+              </article>
+            </div>
+          </div>
+
+          <button class="crm-showcase__arrow crm-showcase__arrow--next" type="button" aria-label="Show next CRM preview">
+            <i data-lucide="chevron-right" aria-hidden="true"></i>
+          </button>
+
+          <div class="crm-showcase__dots" id="crm-showcase-dots" aria-label="Choose CRM preview slide"></div>
+        </div>
+
+        <div class="crm-landing__copy">
+          <p>Built for the people who help others thrive</p>
           <h1 id="crm-placeholder-heading">
-            Client progress,
-            <span>all in one place.</span>
+            More progress.
+            <span>Less guesswork.</span>
           </h1>
-          <p>
-            A focused CRM experience for coaches, clinicians, and teams is coming next.
-          </p>
-          <a class="button button--primary product-card__button" href="become-a-tester.html">
-            Become a tester
+          <p>All your clients. All their data. In one place.</p>
+          <a class="button button--primary crm-landing__cta" href="become-a-tester.html">
+            Apply to be a tester
             <i data-lucide="arrow-right" aria-hidden="true"></i>
           </a>
-        </div>
-        <div class="product-card__visual product-card__visual--laptop" aria-label="Radiant CRM preview">
-          <img
-            class="laptop-screenshot"
-            src="./assets/macbookScreenshot.jpg"
-            alt="Radiant CRM displayed on a MacBook"
-            loading="eager"
-            decoding="async"
-          />
+          <small>Limited early access</small>
         </div>
       </div>
     </section>
@@ -449,6 +493,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260915-1"></script>
+  <script src="script.js?v=20260915-5"></script>
 </body>
 </html>
