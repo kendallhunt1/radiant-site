@@ -755,6 +755,7 @@ body.show-crm-site .site-header .button--nav-outline {
   display: grid;
   place-items: center;
   width: min(68vw, 820px);
+  height: 100%;
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, -50%) scale(0.7);
@@ -784,6 +785,17 @@ body.show-crm-site .site-header .button--nav-outline {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
+}
+
+.crm-slide__image {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(153, 197, 242, 0.5);
+  border-radius: 18px;
+  object-fit: contain;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 36px 74px rgba(0, 0, 0, 0.35);
 }
 
 .crm-slide__placeholder {
