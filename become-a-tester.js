@@ -1,5 +1,6 @@
 const TESTER_APPLICATIONS_STORAGE_KEY = "radiant-tester-applications-v1";
-const TESTER_APPLICATION_ATTACHMENT_ENDPOINT = "https://formsubmit.co/support@radianthealthapp.com";
+const TESTER_APPLICATION_DRAFT_STORAGE_KEY = "radiant-tester-application-draft-v1";
+const TESTER_APPLICATION_SUBMIT_ENDPOINT = "https://formsubmit.co/support@radianthealthapp.com";
 
 function initTesterApplication() {
   const form = document.getElementById("tester-application-form");
@@ -82,6 +83,77 @@ function initTesterApplication() {
     }
   }
 
+  function getDraftControls() {
+    return Array.from(form.querySelectorAll("input, select, textarea")).filter((control) => {
+      return control.name && control.type !== "file" && control.type !== "hidden";
+    });
+  }
+
+  function saveDraft() {
+    try {
+      const draft = {};
+
+      getDraftControls().forEach((control) => {
+        if (control.type === "checkbox") {
+          draft[control.name] = control.checked;
+          return;
+        }
+
+        if (control.type === "radio") {
+          if (control.checked) {
+            draft[control.name] = control.value;
+          }
+          return;
+        }
+
+        draft[control.name] = control.value;
+      });
+
+      window.sessionStorage.setItem(TESTER_APPLICATION_DRAFT_STORAGE_KEY, JSON.stringify(draft));
+    } catch (error) {
+      return;
+    }
+  }
+
+  function restoreDraft() {
+    try {
+      const raw = window.sessionStorage.getItem(TESTER_APPLICATION_DRAFT_STORAGE_KEY);
+      const draft = raw ? JSON.parse(raw) : {};
+
+      if (!draft || typeof draft !== "object") {
+        return;
+      }
+
+      getDraftControls().forEach((control) => {
+        if (!Object.prototype.hasOwnProperty.call(draft, control.name)) {
+          return;
+        }
+
+        if (control.type === "checkbox") {
+          control.checked = Boolean(draft[control.name]);
+          return;
+        }
+
+        if (control.type === "radio") {
+          control.checked = draft[control.name] === control.value;
+          return;
+        }
+
+        control.value = String(draft[control.name] || "");
+      });
+    } catch (error) {
+      return;
+    }
+  }
+
+  function clearDraft() {
+    try {
+      window.sessionStorage.removeItem(TESTER_APPLICATION_DRAFT_STORAGE_KEY);
+    } catch (error) {
+      return;
+    }
+  }
+
   function clearNativeEmailFields() {
     while (nativeEmailFields.length > 0) {
       nativeEmailFields.pop().remove();
@@ -99,35 +171,52 @@ function initTesterApplication() {
     nativeEmailFields.push(input);
   }
 
-  function getAttachmentReturnUrl() {
+  function getSubmissionReturnUrl() {
     const returnUrl = new URL(window.location.href);
 
     returnUrl.searchParams.set("testerApplication", "submitted");
     return returnUrl.toString();
   }
 
-  function submitWithAttachments(application) {
+  function getApplicantReviewMessage(application) {
+    const greetingName = application.firstName || "there";
+
+    return [
+      `Hi ${greetingName},`,
+      "",
+      "Thank you for applying to become a Radiant tester. We are grateful for your application, and it is now in review.",
+      "",
+      "When a decision has been reached, we will email you again. If you are chosen, that email will include instructions for the next steps.",
+      "",
+      "Thank you again for your interest in helping shape Radiant.",
+      "",
+      "The Radiant team",
+    ].join("\n");
+  }
+
+  function submitWithFormsubmit(application) {
     clearNativeEmailFields();
     appendNativeEmailField("_subject", "Radiant tester application");
     appendNativeEmailField("_template", "table");
     appendNativeEmailField("_replyto", application.email);
     appendNativeEmailField("_url", window.location.href);
-    appendNativeEmailField("_next", getAttachmentReturnUrl());
+    appendNativeEmailField("_next", getSubmissionReturnUrl());
+    appendNativeEmailField("_autoresponse", getApplicantReviewMessage(application));
     appendNativeEmailField("form_name", "Radiant Tester Application");
     appendNativeEmailField("application_id", application.id);
     appendNativeEmailField("submitted_at", formatTesterDateTime(application.submittedAt));
     appendNativeEmailField(
       "professional_documentation_file_names",
-      application.professionalDocumentation.join(", "),
+      application.professionalDocumentation.join(", ") || "N/A",
     );
 
-    form.action = TESTER_APPLICATION_ATTACHMENT_ENDPOINT;
+    form.action = TESTER_APPLICATION_SUBMIT_ENDPOINT;
     form.method = "POST";
     form.enctype = "multipart/form-data";
     HTMLFormElement.prototype.submit.call(form);
   }
 
-  function showReturnedAttachmentSubmissionStatus() {
+  function showReturnedSubmissionStatus() {
     const currentUrl = new URL(window.location.href);
 
     if (currentUrl.searchParams.get("testerApplication") !== "submitted") {
@@ -136,6 +225,7 @@ function initTesterApplication() {
 
     currentUrl.searchParams.delete("testerApplication");
     window.history.replaceState(null, "", `${currentUrl.pathname}${currentUrl.search}${currentUrl.hash}`);
+    clearDraft();
     setStatus("Application submitted! We'll get back with you shortly.", "success");
   }
 
@@ -147,7 +237,6 @@ function initTesterApplication() {
     otherAppsField.disabled = !isRequired;
 
     if (!isRequired) {
-      otherAppsField.value = "";
       otherAppsField.setCustomValidity("");
     }
 
@@ -193,19 +282,11 @@ function initTesterApplication() {
     clientAppsField.disabled = !isHealthProfessional || !requiresClientAppsDetail;
 
     if (!requiresClientAppsDetail) {
-      clientAppsField.value = "";
       clientAppsField.setCustomValidity("");
     }
 
     if (!isHealthProfessional) {
-      professionalTypeField.value = "";
-      organizationNameField.value = "";
-      organizationRoleField.value = "";
-      professionalDocumentationField.value = "";
       professionalDocumentationField.setCustomValidity("");
-      usesClientAppsInputs.forEach((input) => {
-        input.checked = false;
-      });
     }
 
     refreshInvalidHighlightsAfterChange();
@@ -248,7 +329,10 @@ function initTesterApplication() {
     });
   }
 
-  showReturnedAttachmentSubmissionStatus();
+  restoreDraft();
+  syncOtherAppsRequirement();
+  syncProfessionalRequirements();
+  showReturnedSubmissionStatus();
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -275,6 +359,7 @@ function initTesterApplication() {
       firstName: String(formData.get("firstName") || "").trim(),
       lastName: String(formData.get("lastName") || "").trim(),
       age: String(formData.get("age") || "").trim(),
+      gender: String(formData.get("gender") || "").trim(),
       activityLevel: String(formData.get("activityLevel") || "").trim(),
       currentlyLogs: String(formData.get("currentlyLogs") || "").trim(),
       usedOtherApps: String(formData.get("usedOtherApps") || "").trim(),
@@ -297,65 +382,19 @@ function initTesterApplication() {
       clientApps: String(formData.get("clientApps") || "").trim(),
     };
 
+    saveDraft();
     persistTesterApplication(application);
-
-    if (professionalDocumentationFiles.length > 0) {
-      setSubmitLoading(true);
-      setStatus("Submitting your application...", "");
-      submitWithAttachments(application);
-      return;
-    }
-
-    try {
-      await submitSupportEmail({
-        subject: "Radiant tester application",
-        replyTo: application.email,
-        fields: {
-          form_name: "Radiant Tester Application",
-          application_id: application.id,
-          submitted_at: formatTesterDateTime(application.submittedAt),
-          first_name: application.firstName,
-          last_name: application.lastName,
-          age: application.age,
-          activity_level: application.activityLevel,
-          currently_logs_health: application.currentlyLogs,
-          used_other_apps: application.usedOtherApps,
-          other_apps: application.otherApps || "N/A",
-          health_aware: application.healthAware,
-          email: application.email,
-          phone: application.phone,
-          tiktok_profile: application.tiktokProfile || "N/A",
-          instagram_profile: application.instagramProfile || "N/A",
-          x_profile: application.xProfile || "N/A",
-          youtube_profile: application.youtubeProfile || "N/A",
-          facebook_profile: application.facebookProfile || "N/A",
-          platform: application.platform,
-          health_professional: application.isHealthProfessional ? "Yes" : "No",
-          professional_type: application.professionalType || "N/A",
-          organization_name: application.organizationName || "N/A",
-          organization_role: application.organizationRole || "N/A",
-          professional_documentation: application.professionalDocumentation.join(", ") || "N/A",
-          uses_client_apps: application.usesClientApps || "N/A",
-          client_apps: application.clientApps || "N/A",
-        },
-        files: professionalDocumentationFiles,
-      });
-
-      hasAttemptedSubmit = false;
-      form.reset();
-      syncOtherAppsRequirement();
-      syncProfessionalRequirements();
-      clearInvalidHighlights();
-      setStatus("Application submitted! We'll get back with you shortly.", "success");
-      setSubmitLoading(false);
-    } catch (error) {
-      setStatus("Your application was saved locally but could not be submitted. Please try again.", "error");
-      setSubmitLoading(false);
-    }
+    submitWithFormsubmit(application);
   });
 
-  form.addEventListener("input", refreshInvalidHighlightsAfterChange);
-  form.addEventListener("change", refreshInvalidHighlightsAfterChange);
+  form.addEventListener("input", () => {
+    saveDraft();
+    refreshInvalidHighlightsAfterChange();
+  });
+  form.addEventListener("change", () => {
+    saveDraft();
+    refreshInvalidHighlightsAfterChange();
+  });
 }
 
 function persistTesterApplication(application) {
