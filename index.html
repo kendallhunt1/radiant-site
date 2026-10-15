@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260915-22" />
+  <link rel="stylesheet" href="styles.css?v=20261015-20" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="landing-page">
@@ -40,7 +40,45 @@
   </header>
 
   <main id="main-content">
-    <section class="hero-section section product-gateway-section" aria-labelledby="product-gateway-heading">
+    <section
+      class="section connected-hero-section"
+      id="connected-platform"
+      aria-labelledby="connected-platform-heading"
+    >
+      <div class="container connected-hero">
+        <div class="connected-hero__copy">
+          <h1 id="connected-platform-heading">A healthier tomorrow, together.</h1>
+          <p class="connected-hero__lead">
+            Radiant is a connected health platform with a mobile app for individuals and a CRM for professionals.
+          </p>
+          <p class="connected-hero__supporting">
+            Track daily habits, gain meaningful insights, and work together toward better health outcomes — all in one connected experience.
+          </p>
+
+          <div class="connected-hero__actions">
+            <a class="button button--connected-primary" href="#product-gateway">
+              Explore our products
+              <i data-lucide="chevron-down" aria-hidden="true"></i>
+            </a>
+            <a class="button button--connected-secondary" href="#how-it-works">See how it works</a>
+          </div>
+        </div>
+
+        <div class="connected-hero__visual">
+          <img
+            class="connected-hero__image"
+            src="./assets/dataSyncDashboard.png"
+            alt="Radiant mobile app and professional dashboard securely sharing health data and insights"
+            width="1672"
+            height="941"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="hero-section section product-gateway-section" id="product-gateway" aria-labelledby="product-gateway-heading">
       <div class="container product-gateway">
         <div class="product-gateway__intro">
           <h1 id="product-gateway-heading">
@@ -130,6 +168,182 @@
       </div>
     </section>
 
+    <section
+      class="section challenge-solution-section"
+      id="challenges-and-solutions"
+      aria-labelledby="challenge-solution-heading"
+    >
+      <div class="container challenge-solution-panel">
+        <div class="challenge-solution__header">
+          <h2 id="challenge-solution-heading">Real challenges. A clearer path forward.</h2>
+          <p>Radiant solves common challenges for both individuals and professionals with one connected platform.</p>
+        </div>
+
+        <div class="challenge-solution__comparison">
+          <div class="challenge-solution__column challenge-solution__column--challenges">
+            <p class="challenge-solution__label">The challenges</p>
+            <div class="challenge-solution__list">
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="database"></i>
+                </span>
+                <div>
+                  <h3>Health data is scattered</h3>
+                  <p>Information lives in different apps, notes, or spreadsheets.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="target"></i>
+                </span>
+                <div>
+                  <h3>It&apos;s hard to stay consistent</h3>
+                  <p>Without clear insights, motivation can fade.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="users"></i>
+                </span>
+                <div>
+                  <h3>Professionals lack a clear picture</h3>
+                  <p>It can be difficult to see the full context of a client&apos;s progress.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="message-circle"></i>
+                </span>
+                <div>
+                  <h3>Communication can feel disconnected</h3>
+                  <p>Important updates and feedback are easily missed.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="challenge-solution__flow" aria-hidden="true">
+            <i data-lucide="arrow-right"></i>
+          </div>
+
+          <div class="challenge-solution__column challenge-solution__column--solutions">
+            <p class="challenge-solution__label">The Radiant solution</p>
+            <div class="challenge-solution__list">
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="link-2"></i>
+                </span>
+                <div>
+                  <h3>All your health data in one place</h3>
+                  <p>Track nutrition, hydration, sleep, mood, activity, and more.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="sparkles"></i>
+                </span>
+                <div>
+                  <h3>Clearer insights and real progress</h3>
+                  <p>Turn your data into meaningful insights and stay on track.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="chart-no-axes-column-increasing"></i>
+                </span>
+                <div>
+                  <h3>A complete view for professionals</h3>
+                  <p>See trends, understand progress, and guide clients more effectively.</p>
+                </div>
+              </article>
+              <article class="challenge-solution__item">
+                <span class="challenge-solution__icon" aria-hidden="true">
+                  <i data-lucide="heart"></i>
+                </span>
+                <div>
+                  <h3>Stronger, more connected support</h3>
+                  <p>Keep communication, plans, and progress together.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how-it-works-section" id="how-it-works" aria-labelledby="how-it-works-heading">
+      <div class="container how-it-works-panel">
+        <div class="how-it-works__header">
+          <h2 id="how-it-works-heading">How they work together</h2>
+          <p>
+            A seamless flow of information helps individuals stay on track and gives professionals the insights they need to provide better support.
+          </p>
+        </div>
+
+        <div class="how-it-works__flow">
+          <article class="how-it-works__step how-it-works__step--one">
+            <span class="how-it-works__number" aria-hidden="true">1</span>
+            <div>
+              <h3>Log your data</h3>
+              <p>Track nutrition, hydration, sleep, mood, activity, and more in the Radiant mobile app.</p>
+            </div>
+          </article>
+
+          <div class="how-it-works__media how-it-works__media--phone">
+            <img
+              src="./assets/trackYourMetricsCropped.png?v=20261015-2"
+              alt="Radiant mobile app dashboard for tracking health metrics"
+              width="372"
+              height="720"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="how-it-works__connector how-it-works__connector--one" aria-hidden="true">
+            <span></span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+
+          <article class="how-it-works__step how-it-works__step--two">
+            <span class="how-it-works__number" aria-hidden="true">2</span>
+            <div>
+              <h3>Sync securely</h3>
+              <p>Your information syncs securely and automatically, keeping your data private and up to date.</p>
+            </div>
+          </article>
+
+          <div class="how-it-works__cloud" aria-hidden="true">
+            <i data-lucide="cloud"></i>
+          </div>
+
+          <div class="how-it-works__connector how-it-works__connector--two" aria-hidden="true">
+            <span></span>
+            <i data-lucide="chevron-right"></i>
+          </div>
+
+          <div class="how-it-works__media how-it-works__media--laptop">
+            <img
+              src="./assets/metricsLaptopScreenshot.png"
+              alt="Radiant CRM dashboard showing client health metric alerts"
+              width="1920"
+              height="1080"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <article class="how-it-works__step how-it-works__step--three">
+            <span class="how-it-works__number" aria-hidden="true">3</span>
+            <div>
+              <h3>Gain insights together</h3>
+              <p>Professionals can view your data, see trends and progress in the CRM, and provide more personalized guidance and support.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section crm-placeholder-section" id="crm-placeholder" aria-labelledby="crm-placeholder-heading">
       <div class="container crm-landing">
         <div class="crm-showcase" aria-label="CRM preview slideshow" tabindex="0">
@@ -183,280 +397,375 @@
             <span>Less guesswork.</span>
           </h1>
           <p>All your clients. All their data. In one place.</p>
-          <a class="button button--primary crm-landing__cta" href="become-a-tester.html">
-            Apply to be a tester
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section crm-overview-section" id="crm-connected-care" aria-labelledby="crm-overview-heading">
+      <div class="container crm-overview">
+        <header class="crm-overview__intro">
+          <p class="crm-overview__eyebrow">Built for connected care</p>
+          <h2 id="crm-overview-heading">A clearer view of every client.</h2>
+          <p>
+            Radiant CRM gives health professionals one organized place to understand client progress, spot meaningful patterns, and provide more personalized support.
+          </p>
+        </header>
+
+        <div class="crm-overview__features" aria-label="Radiant CRM benefits">
+          <article class="crm-overview__feature">
+            <span class="crm-overview__feature-icon" aria-hidden="true"><i data-lucide="users"></i></span>
+            <h3>See the whole client</h3>
+            <p>View daily habits, goals, adherence, and progress without piecing together separate apps or spreadsheets.</p>
+          </article>
+
+          <article class="crm-overview__feature">
+            <span class="crm-overview__feature-icon" aria-hidden="true"><i data-lucide="chart-no-axes-column-increasing"></i></span>
+            <h3>Turn data into direction</h3>
+            <p>Review trends across nutrition, hydration, sleep, mood, and activity to understand what needs attention.</p>
+          </article>
+
+          <article class="crm-overview__feature">
+            <span class="crm-overview__feature-icon" aria-hidden="true"><i data-lucide="message-circle"></i></span>
+            <h3>Keep support organized</h3>
+            <p>Keep plans, notes, messages, and follow-up context together so every conversation can move progress forward.</p>
+          </article>
+        </div>
+
+        <div class="crm-connection">
+          <div class="crm-connection__heading">
+            <p class="crm-overview__eyebrow">One connected experience</p>
+            <h2>The mobile app keeps your CRM current.</h2>
+            <p>
+              Clients track their day in Radiant. The information they choose to share syncs securely to the CRM, giving you an up-to-date picture for more useful conversations and better-informed care.
+            </p>
+          </div>
+
+          <div class="crm-connection__flow" aria-label="How the Radiant mobile app connects with the CRM">
+            <article class="crm-connection__step">
+              <span class="crm-connection__number">1</span>
+              <span class="crm-connection__icon" aria-hidden="true"><i data-lucide="smartphone"></i></span>
+              <div>
+                <h3>Clients track daily habits</h3>
+                <p>Nutrition, hydration, sleep, mood, activity, and more are logged in the mobile app.</p>
+              </div>
+            </article>
+
+            <span class="crm-connection__arrow" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+
+            <article class="crm-connection__step">
+              <span class="crm-connection__number">2</span>
+              <span class="crm-connection__icon" aria-hidden="true"><i data-lucide="cloud"></i></span>
+              <div>
+                <h3>Data syncs securely</h3>
+                <p>Shared information stays current automatically, without duplicate entry or disconnected records.</p>
+              </div>
+            </article>
+
+            <span class="crm-connection__arrow" aria-hidden="true"><i data-lucide="arrow-right"></i></span>
+
+            <article class="crm-connection__step">
+              <span class="crm-connection__number">3</span>
+              <span class="crm-connection__icon" aria-hidden="true"><i data-lucide="laptop"></i></span>
+              <div>
+                <h3>You guide the next step</h3>
+                <p>Review trends, adjust plans, and support each client with the context you need in one place.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="crm-overview__action">
+          <a class="button crm-overview__cta" href="become-a-tester.html">
+            Become a CRM tester
             <i data-lucide="arrow-right" aria-hidden="true"></i>
           </a>
-          <small>Limited early access</small>
+          <p>Help shape a CRM designed for connected, personalized support.</p>
         </div>
       </div>
     </section>
 
-    <section class="hero-section section app-site-section" id="app-site">
-      <div class="container orbital-hero">
-        <h1 class="sr-only">Health can be hard. Now it&apos;s not.</h1>
+    <section class="section app-site-section app-product-hero" id="app-site" aria-labelledby="app-product-hero-heading">
+      <div class="container app-product-hero__layout">
+        <div class="app-product-hero__copy">
+          <h1 id="app-product-hero-heading">
+            Your health,
+            <span>organized</span>
+            <strong>beautifully.</strong>
+          </h1>
+          <p class="app-product-hero__description">
+            The Radiant mobile app helps you track daily habits, understand your health, and build better routines — all in one place.
+          </p>
 
-        <div class="orbital-hero__top" id="product">
-          <div class="orbital-hero__headline orbital-hero__headline--left">
-            <p>Health can be hard.</p>
-          </div>
-
-          <div class="orbital-stage" aria-label="Radiant widget gallery">
-            <div class="orbital-stage__aura"></div>
-            <div class="hero-widget-gallery" id="hero-widget-gallery"></div>
-          </div>
-
-          <div class="orbital-hero__headline orbital-hero__headline--right">
-            <p>Now it&apos;s not.</p>
+          <div class="app-product-hero__actions">
+            <a class="button app-product-hero__primary" href="become-a-tester.html">
+              Become a Tester
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
-        <div class="hero-cast" id="hero-cast"></div>
+        <div class="app-product-hero__visual" aria-label="Radiant mobile app product preview">
+          <img
+            class="app-product-hero__image"
+            src="./assets/mobileAppScreenshotsCropped.png"
+            alt="Three Radiant mobile app screens showing health tracking, personalized insights, and community progress"
+            width="1400"
+            height="1084"
+            loading="eager"
+            decoding="async"
+          />
+
+          <div class="app-product-hero__badge app-product-hero__badge--habits">
+            <span><i data-lucide="hand" aria-hidden="true"></i></span>
+            Track daily habits
+          </div>
+          <div class="app-product-hero__badge app-product-hero__badge--progress">
+            <span><i data-lucide="chart-no-axes-column-increasing" aria-hidden="true"></i></span>
+            See real progress
+          </div>
+          <div class="app-product-hero__badge app-product-hero__badge--insights">
+            <span><i data-lucide="lightbulb" aria-hidden="true"></i></span>
+            Get personalized insights
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="section thinking-section" aria-labelledby="thinking-section-heading">
-      <div class="container">
-        <div class="thinking-section__layout">
-          <div class="thinking-section__visual thinking-section__visual--left">
-            <img
-              src="./assets/notebookStairsBrain.png"
-              alt="Brain character climbing a stack of health notebooks"
-              width="680"
-              height="760"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+    <section class="section app-everything-section" id="app-health-overview" aria-labelledby="app-everything-heading">
+      <div class="container app-everything__layout">
+        <div class="app-everything__intro">
+          <p class="app-everything__eyebrow">All in one place</p>
+          <h2 id="app-everything-heading">Everything that matters to your health.</h2>
+          <p>Track the habits that make the biggest difference in how you feel — physically, mentally, and emotionally.</p>
+        </div>
 
-          <div class="thinking-section__content">
-            <div class="thinking-section__copy">
-              <p class="thinking-section__eyebrow">How much time do you spend thinking about your health?</p>
-              <h2 id="thinking-section-heading">Let radiant do the thinking.</h2>
+        <div class="app-everything__grid">
+          <article class="app-health-card app-health-card--nutrition">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="apple"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Nutrition</h3>
+              <p>Log meals, track macros, and build healthier eating habits.</p>
             </div>
-
-            <div class="thinking-section__visual thinking-section__visual--right">
+            <div class="app-health-card__image app-health-card__image--illustration">
               <img
-                src="./assets/characterScreenshots.png"
-                alt="Radiant app screenshots with character helpers"
-                width="1120"
-                height="700"
+                src="./assets/appleEatingSaladDisplay.png"
+                alt="Friendly apple character eating a fresh salad"
+                width="333"
+                height="500"
                 loading="lazy"
                 decoding="async"
               />
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </article>
 
-    <section class="section wearable-section" id="features" aria-labelledby="wearable-heading">
-      <div class="container">
-        <div class="wearable-section__content">
-          <div class="wearable-section__visual">
-            <img
-              src="./assets/activeHeart.png"
-              alt="Radiant heart characters exercising and celebrating"
-              width="1600"
-              height="600"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="wearable-section__copy">
-            <h2 id="wearable-heading">Got a wearable smart device? Great.</h2>
-            <p>
-              It will sync activity, calories burnt, steps, mileage, sleep, sleep rating, sleep stages, and heart rate variability.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section conversation-section" id="insights" aria-labelledby="conversation-heading">
-      <div class="container">
-        <div class="conversation-section__content">
-          <span class="conversation-anchor" id="real-life" aria-hidden="true"></span>
-          <span class="conversation-anchor" id="coaches" aria-hidden="true"></span>
-          <h2 class="sr-only" id="conversation-heading">Radiant characters walking together in conversation</h2>
-          <img
-            class="conversation-section__image"
-            src="./assets/walkingCharacters.png"
-            alt="Radiant characters walking together with speech bubbles"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-hero-showcase" aria-labelledby="section-hero-showcase-heading">
-      <div class="container">
-        <div class="section-hero-showcase__content">
-          <div class="section-hero-showcase__visual">
-            <img
-              class="section-hero-showcase__image"
-              src="./assets/sectionHero.png"
-              alt="Radiant health features shown as a collage of app screens and character moments"
-              width="6198"
-              height="3472"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="section-hero-showcase__copy">
-            <h2 id="section-hero-showcase-heading">Oh yeah. One more thing.</h2>
-            <span class="section-hero-showcase__chevron" aria-hidden="true">
-              <i data-lucide="chevron-down"></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section community-preview-section" aria-labelledby="community-preview-heading">
-      <div class="container">
-        <div class="community-preview-section__content">
-          <h2 class="sr-only" id="community-preview-heading">
-            Radiant community, feed, and health professional views with workout and meal characters
-          </h2>
-
-          <div class="community-preview-scene-frame community-preview-scene-frame--top">
-            <img
-              class="community-preview-scene community-preview-scene--top"
-              src="./assets/charactersWorkoutLandscape.png"
-              alt="Radiant characters working out together"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="community-preview-scene-frame community-preview-scene-frame--left">
-            <img
-              class="community-preview-scene community-preview-scene--left"
-              src="./assets/charactersWorkoutPortrait.png"
-              alt="Radiant characters exercising in a workout room"
-              width="868"
-              height="1811"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="community-preview-phones" aria-label="Radiant social and professional phone screens">
-            <img
-              class="community-preview-phone"
-              src="./assets/communityScreenshot.png"
-              alt="Radiant community screen"
-              width="1530"
-              height="3036"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              class="community-preview-phone"
-              src="./assets/feedScreenshot.png"
-              alt="Radiant group feed screen"
-              width="1530"
-              height="3036"
-              loading="lazy"
-              decoding="async"
-            />
-            <img
-              class="community-preview-phone"
-              src="./assets/hPScreenshot.png"
-              alt="Radiant health professional messaging screen"
-              width="1530"
-              height="3036"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="community-preview-scene-frame community-preview-scene-frame--right">
-            <img
-              class="community-preview-scene community-preview-scene--right"
-              src="./assets/charactersEatingPortrait.png"
-              alt="Radiant characters sharing a healthy meal together"
-              width="930"
-              height="1692"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-
-          <div class="community-preview-scene-frame community-preview-scene-frame--bottom">
-            <img
-              class="community-preview-scene community-preview-scene--bottom"
-              src="./assets/charactersEatingLandscape.png"
-              alt="Radiant characters gathered around a healthy meal"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section support-copy-section" aria-labelledby="support-copy-heading">
-      <div class="container">
-        <div class="support-copy-section__content">
-          <h2 id="support-copy-heading">You don&apos;t have to do it alone anymore.</h2>
-          <p>
-            Do it with your friends, family, gym buddies, trainers, dieticians, and nutritionists.
-            <br />
-            Find your group. Connect with your health professionals. Find your support. Give your support. Be radiant.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section tester-cta" id="tester-cta" aria-labelledby="tester-heading">
-      <div class="container">
-        <div class="tester-cta__panel">
-          <div class="tester-cta__copy">
-            <h2 id="tester-heading">
-              Help shape the future of radiant
-              <span class="heading-sparkle" aria-hidden="true">
-                <i data-lucide="sparkles"></i>
-              </span>
-            </h2>
-            <p>
-              Do you actively track your health and are looking for a better health tracking solution at 0 cost?</br></br>Or</br></br>Are you a health professional looking for a solution to integrate ALL of your client day-to-day management into one space?
-            </p>
-            <div class="tester-benefits" id="tester-benefits">
-              <span class="tester-benefit-pill">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                Free premium for life
-              </span>
-              <span class="tester-benefit-pill">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                Early feature access
-              </span>
-              <span class="tester-benefit-pill">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                Direct product feedback
-              </span>
-              <span class="tester-benefit-pill">
-                <i data-lucide="sparkles" aria-hidden="true"></i>
-                Help improve Radiant
-              </span>
+          <article class="app-health-card app-health-card--hydration">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="droplet"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Hydration</h3>
+              <p>Keep track of your water intake throughout the day.</p>
             </div>
-          </div>
+            <div class="app-health-card__image app-health-card__image--illustration">
+              <img
+                src="./assets/brainDrinkingWaterDisplay.png"
+                alt="Friendly brain character drinking a glass of water"
+                width="333"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
 
-          <div class="tester-character" id="tester-character"></div>
+          <article class="app-health-card app-health-card--sleep">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="moon"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Sleep</h3>
+              <p>Monitor your sleep quality, duration, and patterns.</p>
+            </div>
+            <div class="app-health-card__image app-health-card__image--illustration">
+              <img
+                src="./assets/waterSleepDisplay.png"
+                alt="Friendly water character sleeping peacefully on a pillow"
+                width="500"
+                height="250"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
 
-          <div class="tester-cta__actions">
-            <a class="button button--lavender" href="become-a-tester.html">Apply to be a tester</a>
-          </div>
+          <article class="app-health-card app-health-card--activity">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="person-standing"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Activity</h3>
+              <p>Log movement, workouts, and daily activity.</p>
+            </div>
+            <div class="app-health-card__image app-health-card__image--illustration">
+              <img
+                src="./assets/heartActivityDisplay.png"
+                alt="Friendly heart character exercising with a jump rope"
+                width="400"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="app-health-card app-health-card--mood">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="smile"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Mood</h3>
+              <p>Track how you feel and discover what impacts your mood.</p>
+            </div>
+            <div class="app-health-card__image app-health-card__image--illustration">
+              <img
+                src="./assets/sunMoodDisplay.png"
+                alt="Friendly sun character meditating calmly"
+                width="500"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+
+          <article class="app-health-card app-health-card--insights">
+            <span class="app-health-card__icon" aria-hidden="true"><i data-lucide="chart-no-axes-column-increasing"></i></span>
+            <div class="app-health-card__copy">
+              <h3>Insights</h3>
+              <p>Get personalized insights and see patterns over time.</p>
+            </div>
+            <div class="app-health-card__image app-health-card__image--illustration">
+              <img
+                src="./assets/brainGraphDisplay.png"
+                alt="Friendly brain character presenting an upward-trending graph"
+                width="333"
+                height="500"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section app-progress-section" id="app-how-it-works" aria-labelledby="app-progress-heading">
+      <div class="container app-progress__layout">
+        <div class="app-progress__intro">
+          <p class="app-progress__eyebrow">From logs to real progress</p>
+          <h2 id="app-progress-heading">A simpler way to a healthier you.</h2>
+          <p>Radiant helps you turn daily tracking into meaningful change with a simple, intuitive flow.</p>
+        </div>
+
+        <div class="app-progress__journey">
+          <article class="app-progress__step app-progress__step--one">
+            <div class="app-progress__phone">
+              <img
+                src="./assets/logHistoryScreenshotCropped.png?v=20261015-2"
+                alt="Radiant mobile app food log history screen"
+                width="562"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="app-progress__number" aria-hidden="true">1</span>
+            <h3>Log your day</h3>
+            <p>Quickly track your habits in just a few taps.</p>
+          </article>
+
+          <div class="app-progress__connector" aria-hidden="true"><i data-lucide="arrow-right"></i></div>
+
+          <article class="app-progress__step app-progress__step--two">
+            <div class="app-progress__phone">
+              <img
+                src="./assets/graphSleepCropped.png?v=20261015-2"
+                alt="Radiant Insights screen graphing sleep patterns"
+                width="562"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="app-progress__number" aria-hidden="true">2</span>
+            <h3>Spot patterns</h3>
+            <p>Discover what&apos;s working and what&apos;s not.</p>
+          </article>
+
+          <div class="app-progress__connector" aria-hidden="true"><i data-lucide="arrow-right"></i></div>
+
+          <article class="app-progress__step app-progress__step--three">
+            <div class="app-progress__phone">
+              <img
+                src="./assets/connectWithHPCropped.png?v=20261015-2"
+                alt="Radiant mobile app conversation with a health professional"
+                width="562"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="app-progress__number" aria-hidden="true">3</span>
+            <h3>Connect with your Health Professionals</h3>
+            <p>Make maintaining your health easy with your experts' advice.</p>
+          </article>
+
+          <div class="app-progress__connector" aria-hidden="true"><i data-lucide="arrow-right"></i></div>
+
+          <article class="app-progress__step app-progress__step--four">
+            <div class="app-progress__phone">
+              <img
+                src="./assets/celebrationCropped.png?v=20261015-2"
+                alt="Radiant mobile app goal achievement celebration"
+                width="562"
+                height="900"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="app-progress__number" aria-hidden="true">4</span>
+            <h3>Reach your goals</h3>
+            <p>Reach your goals and share them with your friends!</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section app-benefits-section" id="app-benefits" aria-labelledby="app-benefits-heading">
+      <div class="container app-benefits__layout">
+        <div class="app-benefits__intro">
+          <p class="app-benefits__eyebrow">Real benefits. Lasting change.</p>
+          <h2 id="app-benefits-heading">A healthier, brighter you.</h2>
+          <p>Radiant gives you the tools, insights, and motivation to feel your best — today and tomorrow.</p>
+        </div>
+
+        <div class="app-benefits__grid">
+          <article class="app-benefit-card app-benefit-card--awareness">
+            <span class="app-benefit-card__icon" aria-hidden="true"><i data-lucide="brain"></i></span>
+            <h3>Greater<br />self-awareness</h3>
+            <p>Understand what helps you feel your best.</p>
+          </article>
+
+          <article class="app-benefit-card app-benefit-card--routines">
+            <span class="app-benefit-card__icon" aria-hidden="true"><i data-lucide="heart"></i></span>
+            <h3>Healthier<br />routines</h3>
+            <p>Build sustainable habits that last.</p>
+          </article>
+
+          <article class="app-benefit-card app-benefit-card--motivation">
+            <span class="app-benefit-card__icon" aria-hidden="true"><i data-lucide="zap"></i></span>
+            <h3>More<br />motivation</h3>
+            <p>Celebrate progress and stay consistent.</p>
+          </article>
+
+          <article class="app-benefit-card app-benefit-card--clarity">
+            <span class="app-benefit-card__icon" aria-hidden="true"><i data-lucide="chart-no-axes-column-increasing"></i></span>
+            <h3>A clearer<br />picture</h3>
+            <p>See real progress in your health over time.</p>
+          </article>
         </div>
       </div>
     </section>
