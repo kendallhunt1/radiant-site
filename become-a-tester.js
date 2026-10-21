@@ -20,6 +20,7 @@ function initTesterApplication() {
   const organizationNameField = document.getElementById("tester-organization-name");
   const organizationRoleField = document.getElementById("tester-organization-role");
   const professionalDocumentationField = document.getElementById("tester-professional-documentation");
+  const professionalDocumentationAttestation = document.getElementById("tester-document-attestation");
   const usesClientAppsInputs = Array.from(form.querySelectorAll('input[name="usesClientApps"]'));
   const clientAppsFieldWrapper = document.getElementById("tester-client-apps-field");
   const clientAppsField = document.getElementById("tester-client-apps");
@@ -258,6 +259,7 @@ function initTesterApplication() {
       organizationNameField,
       organizationRoleField,
       professionalDocumentationField,
+      professionalDocumentationAttestation,
       clientAppsField,
       ...usesClientAppsInputs,
     ].filter(Boolean);
@@ -266,6 +268,7 @@ function initTesterApplication() {
     professionalPanel.setAttribute("aria-disabled", String(!isHealthProfessional));
     professionalTypeField.required = isHealthProfessional;
     professionalDocumentationField.required = isHealthProfessional;
+    professionalDocumentationAttestation.required = isHealthProfessional;
 
     professionalFields.forEach((field) => {
       field.disabled = !isHealthProfessional;
@@ -287,6 +290,7 @@ function initTesterApplication() {
 
     if (!isHealthProfessional) {
       professionalDocumentationField.setCustomValidity("");
+      professionalDocumentationAttestation.setCustomValidity("");
     }
 
     refreshInvalidHighlightsAfterChange();
@@ -378,6 +382,7 @@ function initTesterApplication() {
       organizationName: String(formData.get("organizationName") || "").trim(),
       organizationRole: String(formData.get("organizationRole") || "").trim(),
       professionalDocumentation: professionalDocumentationFiles.map((file) => file.name),
+      professionalDocumentationAttested: formData.get("professionalDocumentationAttestation") === "on",
       usesClientApps: String(formData.get("usesClientApps") || "").trim(),
       clientApps: String(formData.get("clientApps") || "").trim(),
     };

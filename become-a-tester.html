@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Apply to become a Radiant tester and help shape the next versions of the product."
+    content="Apply to become a Radiant tester. Health professionals must submit qualifying documentation to be considered for CRM access."
   />
   <title>Radiant | Become a Tester</title>
   <link rel="icon" href="/liftingSunLogoDepthLight.png" />
@@ -15,7 +15,7 @@
     href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css?v=20260906-5" />
+  <link rel="stylesheet" href="styles.css?v=20261021-1" />
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="tester-page">
@@ -267,8 +267,11 @@
                 </div>
                 <div class="tester-checkbox-row">
                   <input id="tester-health-professional" name="isHealthProfessional" type="checkbox" />
-                  <label for="tester-health-professional">Yes, I&apos;m applying as a health professional (You will have radiant CRM and radiant mobile app access).</label>
+                  <label for="tester-health-professional">Yes, I&apos;m applying as a health professional and requesting radiant CRM access.</label>
                 </div>
+                <p class="tester-professional-toggle__note">
+                  CRM access is reserved for verified health professionals. Your supporting document must directly prove the profession you select below.
+                </p>
               </div>
 
               <section class="tester-professional-panel tester-field--full is-locked" id="tester-professional-panel" aria-label="Health professional questions" aria-disabled="true">
@@ -276,13 +279,40 @@
                   <i data-lucide="lock"></i>
                 </div>
                 <div class="tester-professional-panel__copy">
-                  <h3>Health professional tester access</h3>
-                  <p>
-                    If you join as a health professional, you&apos;ll be given full access to the radiant CRM to manage every aspect of your clients. Day-to-day monitoring, scheduling, plan building, and more.
+                  <p class="tester-requirement-badge">
+                    <i data-lucide="badge-check" aria-hidden="true"></i>
+                    Verification required for CRM access
                   </p>
+                  <h3>Prove your professional status</h3>
                   <p>
-                    By applying as a health professional, you&apos;re agreeing to actively test these features and provide direct feedback on how they work in day-to-day practice so we can improve the product.
+                    Radiant CRM includes professional tools for managing clients, schedules, plans, logs, and health metrics. To help protect clients and keep professional access limited to qualified testers, we verify every CRM applicant.
                   </p>
+                  <div class="tester-document-guidance" aria-label="Supporting documentation requirements">
+                    <div class="tester-document-guidance__column">
+                      <h4><i data-lucide="check-circle-2" aria-hidden="true"></i> Submit one of these</h4>
+                      <ul>
+                        <li>A current professional or clinical license.</li>
+                        <li>A degree or diploma in your stated health field.</li>
+                        <li>A current certification from a recognized issuing organization.</li>
+                        <li>An employer verification letter on official letterhead confirming your health-related role.</li>
+                        <li>An official registry record showing your name, credential, and active status.</li>
+                      </ul>
+                    </div>
+                    <div class="tester-document-guidance__column tester-document-guidance__column--warning">
+                      <h4><i data-lucide="circle-x" aria-hidden="true"></i> These do not qualify by themselves</h4>
+                      <ul>
+                        <li>A résumé or CV.</li>
+                        <li>A social media profile, website, or personal bio.</li>
+                        <li>A course receipt, class schedule, or unfinished training.</li>
+                        <li>A document unrelated to the profession selected below.</li>
+                        <li>An unreadable, cropped, expired, or altered document.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tester-denial-notice" role="note">
+                    <i data-lucide="shield-alert" aria-hidden="true"></i>
+                    <p><strong>Your CRM application will be denied</strong> if the documentation does not clearly support your claimed health professional status. You may still be considered for mobile-app-only testing.</p>
+                  </div>
                 </div>
 
                 <div class="tester-form-grid tester-form-grid--nested">
@@ -324,7 +354,7 @@
                   </div>
 
                   <div class="tester-field tester-field--full">
-                    <label for="tester-professional-documentation">Supporting documentation (licenses, degrees, certifications, etc.)</label>
+                    <label for="tester-professional-documentation">Upload qualifying professional documentation</label>
                     <input
                       class="tester-input tester-file-input"
                       id="tester-professional-documentation"
@@ -334,7 +364,18 @@
                       multiple
                       disabled
                     />
-                    <p class="tester-field__helper">Attach a license, degree, certification, employment verification, or other relevant documentation.</p>
+                    <p class="tester-field__helper">
+                      The document must be legible and show your name, professional credential or role, and issuing organization. It must be current where an expiration date applies. Accepted formats: PDF, PNG, JPG, DOC, or DOCX.
+                    </p>
+                  </div>
+
+                  <div class="tester-field tester-field--full tester-document-attestation">
+                    <div class="tester-checkbox-row">
+                      <input id="tester-document-attestation" name="professionalDocumentationAttestation" type="checkbox" disabled />
+                      <label for="tester-document-attestation">
+                        I confirm that my upload directly supports the health profession selected above, belongs to me, and is accurate. I understand that missing, unrelated, or unverifiable documentation will result in denial of CRM access.
+                      </label>
+                    </div>
                   </div>
 
                   <fieldset class="tester-field tester-choice-group">
@@ -415,13 +456,16 @@
           This can include roles like physician, nurse, dietitian, therapist, health coach, fitness professional, personal trainer, or other clinical or wellness practitioners.
         </p>
         <p>
-          If you&apos;re unsure, leave it unchecked. We can always follow up later for more detail.
+          CRM access requires documentation that directly verifies the profession you claim. A résumé, social profile, personal website, or unrelated certificate is not sufficient by itself.
+        </p>
+        <p class="tester-dialog__warning">
+          If you cannot provide qualifying documentation, leave this box unchecked and apply as a mobile app tester. Applications without verifiable professional documentation will be denied CRM access.
         </p>
       </div>
     </div>
   </dialog>
 
   <script src="script.js?v=20260906-1"></script>
-  <script src="become-a-tester.js?v=20260923-1"></script>
+  <script src="become-a-tester.js?v=20261021-1"></script>
 </body>
 </html>
